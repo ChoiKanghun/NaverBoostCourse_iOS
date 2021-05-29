@@ -18,10 +18,14 @@ class MovieDetailViewController: UIViewController {
     let commentCellIdentifier: String = "commentCell"
     let postCommentCellIdentifier: String = "postCommentCell"
     
+    var imageView = UIImageView()
+    var isEnlarged: Bool = false
+    
     var id: String?
     
     var details: Detail?
     var commments: [Comment] = []
+    var newImageView: UIImageView = UIImageView()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController: PostCommentViewController = segue.destination as? PostCommentViewController else {
@@ -49,6 +53,8 @@ class MovieDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMovieDetailNotification(_:)) , name: DidReceiveMovieDetailNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveCommentsNotification(_:)), name: DidReceiveCommentsNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissPostCommentNotification(_:)), name: DidDismissPostCommentViewController, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+        
     }
     
     @objc func didDismissPostCommentNotification(_ noti: Notification) {
@@ -78,8 +84,14 @@ class MovieDetailViewController: UIViewController {
     }
 
     @IBAction func imageTapped(sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
+        
+        self.isEnlarged = true
+        guard let image = self.imageView.image
+        else {
+            print("cant get imageView")
+            return
+        }
+        self.newImageView = UIImageView(image: image)
         newImageView.frame = UIScreen.main.bounds
         newImageView.backgroundColor = .black
         newImageView.contentMode = .scaleAspectFit
@@ -90,13 +102,44 @@ class MovieDetailViewController: UIViewController {
         self.view.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        
     }
+    
 
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
         sender.view?.removeFromSuperview()
+        self.isEnlarged = false
+        
     }
+    
+    @objc func deviceRotated() {
+        if self.isEnlarged == true {
+            self.view.subviews.last?.removeFromSuperview()
+            imageTapped(sender: UITapGestureRecognizer())
+        }
+    }
+    
+    @objc func dismissAndMakeFull() {
+            self.view.subviews.last?.removeFromSuperview()
+            guard let image = self.imageView.image
+            else {
+                print("cant get imageView")
+                return
+            }
+            let newImageView = UIImageView(image: image)
+            newImageView.frame = UIScreen.main.bounds
+            newImageView.backgroundColor = .black
+            newImageView.contentMode = .scaleAspectFit
+            newImageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action:
+                #selector(dismissFullscreenImage))
+            newImageView.addGestureRecognizer(tap)
+            self.view.addSubview(newImageView)
+            self.navigationController?.isNavigationBarHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+        }
 }
 
 extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -196,6 +239,7 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate 
                     else {return}
                 DispatchQueue.main.async {
                     imageAndMovieInfoCell.detailImageView?.image = UIImage(data: imageData)
+                    self.imageView.image = UIImage(data: imageData)
                     let frame = CGRect(x: 0, y: 0, width: 125, height: 125)
                     imageAndMovieInfoCell.detailImageView?.frame = frame
                 }
