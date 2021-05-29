@@ -54,8 +54,7 @@ class CollectionViewMoiveListViewController: UIViewController {
         super.viewWillAppear(animated)
         
 
-        self.collectionView.collectionViewLayout = getFlowLayout()
-        
+
         requestMovies(orderType: self.orderType)
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
@@ -64,23 +63,21 @@ class CollectionViewMoiveListViewController: UIViewController {
 
     }
     
-    private func getFlowLayout() -> UICollectionViewFlowLayout {
+    private func getFlowLayout(isLandscape: Bool) -> UICollectionViewFlowLayout {
         let flowLayout: UICollectionViewFlowLayout
         flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets.zero
-        // section의 inset (섹션의 인셋)을 없애라.
-        // 공식문서의 정의:The margins used to lay out content in a section.
-        flowLayout.minimumLineSpacing = 10
-        // 라인 간의 거리
-        flowLayout.minimumInteritemSpacing = 10
-        // 아이템 간의 거리
-        
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
         let halfWidth: CGFloat = UIScreen.main.bounds.width / 2.0
         let screenHeight: CGFloat = UIScreen.main.bounds.height
-        flowLayout.itemSize = CGSize(width: halfWidth - 10, height: screenHeight * 0.6)
-        // 가로는 30 작게, 높이는 90정도로 하면 좋겠다.
-        // estimated인 이유는 autoLayout을 지정했기 때문에
-        // 내 예상 이 정도 될 것 같으니 알아서 잘 배치해봐라. 라는 뜻임.
+        
+        if (isLandscape == false) {
+            flowLayout.itemSize = CGSize(width: halfWidth - 10, height: screenHeight * 0.6)
+        }
+        else {
+            flowLayout.itemSize = CGSize(width: halfWidth - 10, height: screenHeight * 1.2)
+        }
         
         return flowLayout
     }
@@ -90,6 +87,9 @@ class CollectionViewMoiveListViewController: UIViewController {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        self.collectionView.collectionViewLayout
+            = getFlowLayout(isLandscape: UIDevice.current.orientation.isLandscape)
         
         if let orderType = Singleton.shared.orderType {
             self.orderType = orderType
@@ -108,9 +108,34 @@ class CollectionViewMoiveListViewController: UIViewController {
     @objc func deviceRotated() {
         if UIDevice.current.orientation.isLandscape {
             print("landscape")
+            let flowLayout = getFlowLayout(isLandscape: true)
+            let itemSize = flowLayout.itemSize
+
+            guard let collectionViewLayout
+                = self.collectionView?.collectionViewLayout
+                as? UICollectionViewFlowLayout
+            else {
+                print("can't get collectionViewLayout")
+                return
+            }
+            collectionViewLayout.itemSize = itemSize
+            collectionViewLayout.invalidateLayout()
         }
         if UIDevice.current.orientation.isPortrait {
             print("portrait")
+            let flowLayout = getFlowLayout(isLandscape: false)
+            let itemSize = flowLayout.itemSize
+
+            guard let collectionViewLayout
+                = self.collectionView?.collectionViewLayout
+                as? UICollectionViewFlowLayout
+            else {
+                print("can't get collectionViewLayout")
+                return
+            }
+            collectionViewLayout.itemSize = itemSize
+            collectionViewLayout.invalidateLayout()
+            print("portrait done")
         }
     }
     
@@ -189,35 +214,7 @@ class CollectionViewMoiveListViewController: UIViewController {
     }
     
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        if UIDevice.current.orientation.isLandscape {
-            print("view will changed from landscape")
-        }
-        
-        
-//        let flowLayout = getFlowLayout()
-//        let itemSize = flowLayout.itemSize
-//
-//        guard let collectionViewLayout
-//            = self.collectionView?.collectionViewLayout
-//            as? UICollectionViewFlowLayout
-//        else {
-//            print("can't get collectionViewLayout")
-//            return
-//        }
-//        collectionViewLayout.itemSize = itemSize
-//        collectionViewLayout.invalidateLayout()
-    }
-    
-    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        print("Will rotate")
-    }
-    
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("Will transition")
-    }
+   
 }
 
 
