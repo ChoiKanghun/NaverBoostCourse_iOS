@@ -181,7 +181,7 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate 
             imageAndMovieInfoCell.genreUILabel?.text = detail.genre
             guard let duration = detail.duration
                 else {return UITableViewCell()}
-            imageAndMovieInfoCell.duartionUILabel?.text = String(duration) + "분"
+            imageAndMovieInfoCell.duartionUILabel?.text = "/" + String(duration) + "분"
             guard let ranking = detail.ranking
                 else {return UITableViewCell()}
             guard let reservationRate = detail.reservationRate
@@ -209,9 +209,9 @@ extension MovieDetailViewController: UITableViewDataSource, UITableViewDelegate 
             }
             switch detail.ageLimit {
             case 0:
-                guard let ageLimitImage = UIImage(named: "ic_alleges")
+                guard let ageLimitImage = UIImage(named: "ic_allages")
                     else {return UITableViewCell()}
-                Singleton.shared.ageLimitImageName = "ic_alleges"
+                Singleton.shared.ageLimitImageName = "ic_allages"
                 imageAndMovieInfoCell.ageLimitImageView?.image = ageLimitImage
             case 12:
                 guard let ageLimitImage = UIImage(named:"ic_12")
