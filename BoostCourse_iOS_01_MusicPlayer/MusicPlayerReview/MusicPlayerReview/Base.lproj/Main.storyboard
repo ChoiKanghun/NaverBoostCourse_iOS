@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MusicPlayerReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zba-cw-IE3">
+                                <rect key="frame" x="107" y="94" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3ZO-U5-ife"/>
+                                    <constraint firstAttribute="width" constant="200" id="zvq-ls-3aq"/>
+                                </constraints>
+                                <state key="normal" image="button_play"/>
+                                <state key="selected" image="button_pause"/>
+                                <connections>
+                                    <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uyb-Wq-peT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDP-vc-Kvg">
+                                <rect key="frame" x="164" y="314" width="86" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HeQ-ad-deb">
+                                <rect key="frame" x="38" y="368" width="338" height="31"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="tm8-Y2-Xls"/>
+                                    <constraint firstAttribute="height" constant="30" id="ykr-bM-GuK"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="47m-Jm-83K"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zba-cw-IE3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DBg-gP-u66"/>
+                            <constraint firstItem="HeQ-ad-deb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pvd-3n-vyA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HeQ-ad-deb" secondAttribute="trailing" constant="40" id="Ycd-XQ-Gql"/>
+                            <constraint firstItem="ZDP-vc-Kvg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bzT-zc-kIM"/>
+                            <constraint firstItem="HeQ-ad-deb" firstAttribute="top" secondItem="ZDP-vc-Kvg" secondAttribute="bottom" constant="30" id="cv1-4J-BCz"/>
+                            <constraint firstItem="ZDP-vc-Kvg" firstAttribute="top" secondItem="zba-cw-IE3" secondAttribute="bottom" constant="20" id="wEg-x3-7tR"/>
+                            <constraint firstItem="zba-cw-IE3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="yS7-eS-Fb5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="zba-cw-IE3" id="RPI-V3-LRT"/>
+                        <outlet property="progressSlider" destination="HeQ-ad-deb" id="SJH-Mj-tAh"/>
+                        <outlet property="timeLabel" destination="ZDP-vc-Kvg" id="xpE-B5-v8n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2162.3188405797105" y="95.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_pause" width="185" height="185"/>
+        <image name="button_play" width="187" height="189"/>
+    </resources>
+</document>

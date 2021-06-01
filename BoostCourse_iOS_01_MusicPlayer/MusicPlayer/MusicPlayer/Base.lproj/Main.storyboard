@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--SuperView-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="SuperView" customClass="ViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H1-du-Sor">
+                                <rect key="frame" x="178.5" y="344" width="57" height="18"/>
+                                <fontDescription key="fontDescription" name=".SFUI-Semibold" family=".AppleSystemUIFont" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dwm-da-O47">
+                                <rect key="frame" x="14" y="378" width="386" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gcf-9k-rOu"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKd-YQ-4tc">
+                                <rect key="frame" x="107" y="94" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2k2-Cg-Vga"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="oL4-f8-Nhw"/>
+                                </constraints>
+                                <state key="normal" image="button_play"/>
+                                <state key="selected" image="button_pause"/>
+                                <connections>
+                                    <action selector="touchUpPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FJj-6E-TP2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LKd-YQ-4tc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="30i-ld-BSW"/>
+                            <constraint firstItem="dwm-da-O47" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7Fk-3V-gDf"/>
+                            <constraint firstItem="LKd-YQ-4tc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CFv-yi-rT3"/>
+                            <constraint firstItem="dwm-da-O47" firstAttribute="top" secondItem="6H1-du-Sor" secondAttribute="bottom" constant="16" id="EdN-i6-Ipj"/>
+                            <constraint firstItem="LKd-YQ-4tc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Euz-Ue-ymW"/>
+                            <constraint firstItem="LKd-YQ-4tc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fg7-mH-iqR"/>
+                            <constraint firstItem="LKd-YQ-4tc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="KJN-ty-CUk"/>
+                            <constraint firstItem="LKd-YQ-4tc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pzn-nY-YFo"/>
+                            <constraint firstItem="6H1-du-Sor" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rk7-Vf-0ZL"/>
+                            <constraint firstItem="6H1-du-Sor" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UkY-KW-0Gd"/>
+                            <constraint firstItem="6H1-du-Sor" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jZ2-oh-5mX"/>
+                            <constraint firstItem="6H1-du-Sor" firstAttribute="top" secondItem="LKd-YQ-4tc" secondAttribute="bottom" constant="50" id="rRG-km-Pyg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dwm-da-O47" secondAttribute="trailing" constant="16" id="w08-cK-aQW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="playPauseButton" destination="LKd-YQ-4tc" id="R2m-R0-yvq"/>
+                        <outlet property="progressSlider" destination="dwm-da-O47" id="S7H-GN-Yms"/>
+                        <outlet property="timeLabel" destination="6H1-du-Sor" id="3od-V2-seZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426.08695652173918" y="-91.304347826086968"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_pause" width="185" height="185"/>
+        <image name="button_play" width="187" height="189"/>
+    </resources>
+</document>

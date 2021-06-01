@@ -1,0 +1,1261 @@
+
+<!DOCTYPE html>
+<html lang="ko" itemscope itemtype="http://schema.org/Article">
+<head>
+        <!-- #breadcrumb:common/_head.gsp -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Cache-Control" content="max-age=86400, public">
+
+
+    
+    
+    <meta property="og:url" content="http://www.edwith.org/boostcourse-ios/lecture/16842/">
+    
+    <meta property="og:type" content="article">
+    
+    <meta property="og:title" content="[LECTURE] 1) 프로젝트에 이미지 추가하기 : edwith">
+    
+    <meta property="og:description" content="프로젝트에 이미지 추가하기 Xcode에 조금 익숙해 졌나요? 이번 시간에는 에셋(asset)을 이용해 프로젝트에서 사용할 이미지를 추가하는 방법에 대해 알아보고 에셋이란 무엇인지 ... - 부스트코스">
+    
+    <meta property="og:image" content="https://cphinf.pstatic.net/mooc/20171230_74/1514625555079AlogH_PNG/figure1_1.png">
+    
+    <meta property="og:site_name" content="edwith : 에듀케이션위드">
+    
+    <meta property="fb:app_id" content="1441124829481137">
+    
+
+    
+    <meta name="keywords" content="&quot;[부스트코스] iOS 프로그래밍, 부스트코스, 자료구조 ,수학 ,iOS ,데이터베이스 ,알고리즘 ,부스트코스 ,C ,코딩 ,swift ,R ,커넥트재단 ,boostcourse ,spring">
+    
+    <meta name="description" content="[부스트코스] iOS 프로그래밍 ">
+    
+    <meta name="image" content="https://cphinf.pstatic.net/mooc/20171230_74/1514625555079AlogH_PNG/figure1_1.png">
+    
+
+    
+        <meta itemprop="name" content="[LECTURE] 1) 프로젝트에 이미지 추가하기 : edwith">
+    
+        <meta itemprop="description" content="프로젝트에 이미지 추가하기 Xcode에 조금 익숙해 졌나요? 이번 시간에는 에셋(asset)을 이용해 프로젝트에서 사용할 이미지를 추가하는 방법에 대해 알아보고 에셋이란 무엇인지 ... - 부스트코스">
+    
+        <meta itemprop="image" content="https://cphinf.pstatic.net/mooc/20171230_74/1514625555079AlogH_PNG/figure1_1.png">
+    
+
+
+<!-- serverURL : https://www.edwith.org -->
+<!-- i18n locale : en -->
+<!-- en -->
+<!-- US -->
+<!-- NEXT -->
+
+    
+    <link rel="shortcut icon" type="https://ssl.pstatic.net/static/m/mooc/edwithmage/x-icon" href="https://ssl.pstatic.net/static/m/mooc/p/partner/next/favicon.ico">
+
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/plugin.css" type="text/css">
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/common1.css" type="text/css">
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/common2.css" type="text/css">
+
+    
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/edwith.css" type="text/css">
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/nanumsquare_webfont.css" type="text/css">
+    
+    
+    
+
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/code_editor/prism.css" type="text/css">
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/connectfdn/edwith/RB.20.09.03.0/css/code_editor/codemirror.css" type="text/css">
+
+    <script src="https://connect.facebook.net/en_US/all.js"></script>
+    <script src="/static/js/vendor/html5shiv/dist/html5shiv.min.js?200904_56277ac5"></script>
+    <script src="/static/js/vendor/respond/dest/respond.min.js?200904_56277ac5"></script>
+    <script src="/static/js/plugins/nclktag.js?200904_56277ac5"></script>
+    <script>
+        var nsc = 'edwith.all';
+        var ccsrv = 'cc.naver.com';
+        var nclk_evt = 3;
+        nclk_do();
+
+        if('NEXT' == 'KAIST' || 'NEXT' == 'HANYANG') {
+            window.onload = function() {
+                window.parent.postMessage({
+                    'url': document.location + '',
+                    'title': document.title
+                }, '*');
+            };
+
+            window.onhashchange = function() {
+                window.parent.postMessage({
+                    'anchor': location.hash == '#' ? '' : location.hash
+                }, '*');
+            };
+        }
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P2H76TF');</script>
+    <!-- End Google Tag Manager -->
+
+    
+        <title>[부스트코스] iOS 프로그래밍 > 1) 프로젝트에 이미지 추가하기 : edwith </title>
+    
+</head>
+<body class="mac apple mail apple mail">
+
+
+
+    
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2H76TF"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+<input type="hidden" id="__PARTNER_CODE" value="NEXT" />
+<input type="hidden" id="__ADMIN_PARTNER_CODE" value="" />
+<input type="hidden" id="__FILEUPLOAD_DOMAIN" value="//upload.edwith.org" />
+<input type="hidden" id="__FILEUPLOAD_ENDPOINT" value="//upload.edwith.org/uploadManager/upload" />
+<input type="hidden" id="__USER_ROLE" value="ROLE_STUDENT" />
+<input type="hidden" id="__USER_PRIORITY" value="2" />
+<input type="hidden" id="__USER_ID" value="254839">
+<input type="hidden" id="__COURSE_ID" value="1904" />
+<input type="hidden" id="__COURSE_OPEN_DAY" value="" />
+<input type="hidden" id="__COURSE_CLOSE_DAY" value="" />
+<input type="hidden" id="__COURSE_URI_PATH" value="boostcourse-ios" />
+<input type="hidden" id="__CURRENT_DATE" value="2020.09.06" />
+<input type="hidden" id="__MESSAGE_TITLE" value="Notification" />
+<input type="hidden" id="__LOCALE_LANGUAGE" value="ko" />
+<input type="hidden" id="__IS_SHARE_PARTNER_CODE" value="false" />
+<input type="hidden" id="__IS_PRIVATE_PARTNER" value="false" />
+<input type="hidden" id="__I18N_RESOURCES_PATH" value="/i18n/" />
+<input type="hidden" id="__COURSE_TERM_TYPE" value="basic" />
+<input type="hidden" id="__RESOURCE_VERSION" value="?200904_56277ac5" />
+<input type="hidden" id="__CONTROLLER_TYPE" value="lecture" />
+<input type="hidden" id="__GITLAB_URL" value="https://gitlab.edwith.org" />
+<input type="hidden" id="__EDWITH_API_URL" value="https://api.edwith.org" />
+<input type="hidden" id="__CBOX_STATIC_DOMAIN" value="https://ssl.pstatic.net/static.cbox" />
+<input type="hidden" id="__CBOX_API_DOMAIN" value="https://apis.naver.com/commentBox/cbox8" />
+<input type="hidden" id="__CBOX_TICKET" value="mooc" />
+<input type="hidden" id="__STANDBY_CAMPAIGN_DOMAIN" value="https://standby-campaign.naver.com" />
+
+    <input type="hidden" id="__MESSAGE_CODE" value="" />
+
+<script src="/static/js/vendor/vendor.compressed.min.js?200904_56277ac5"></script>
+<script src="/static/js/src/entries/common/_head.entry.browserfied.min.js?200904_56277ac5"></script>
+<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
+<script src="https://vliveplus.pstatic.net/0/mobile/2020/04/standby/f1.1.0.8.js"></script>
+<script>
+    var title = document.title;
+    document.title = _.unescape(title);
+
+    var entry = require("/entries/common/_head.entry.js");
+    entry.initialize();
+
+    
+        
+        if(!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "3d48cd39225150";
+        wcs_do();
+
+        
+        
+    
+
+    
+    function diff_minutes(dt2, dt1) {
+        var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+        diff /= 60;
+        return Math.abs(Math.round(diff));
+    }
+
+    //오늘 하루만 유지되도록 쿠키 Minute 설정
+    function getStandbyCookieTime() {
+        var dt1 = new Date();
+
+        var dt2 = new Date(dt1);
+        dt2.setDate(dt1.getDate() + 1);
+        dt2.setHours(0,0,0,0);
+
+        var diffMinute =  diff_minutes(dt2, dt1);
+        if(diffMinute <= 0) {
+            return 24 * 60
+        } else {
+            return diffMinute;
+        }
+    }
+
+    var htInfo = {
+        serviceId : "edwith_NEXT",
+        seqApi : "https://standby-campaign.naver.com/",
+        heartBeatApi : "https://standby-campaign.naver.com/",
+        homeUrl : "https://edwith.org",
+        cookieTime : getStandbyCookieTime()
+    };
+
+    var oSequenceManager = new SequenceManager({
+        serviceId : htInfo.serviceId,
+        apiHost: htInfo.seqApi,
+        cookieTime: htInfo.cookieTime, //minute 단위
+        successCallback : function(response){
+            //시퀀스 호출이 성공 하였을 경우 heartbeat 요청 시작~
+            oHeartbeat.start();
+        },
+        failCallback : function(response) {
+        },
+        errorCallback : function(error) {
+            //호출 시 오류가 발생 하였을 경우 3초 후 시퀀스 호출
+            setTimeout(oSequenceManager.requestSequence , 3000);
+        }
+    });
+
+    var oHeartbeat = new Heartbeat(oSequenceManager,{
+        serviceId: htInfo.serviceId,
+        apiHost: htInfo.heartBeatApi,
+        soldoutCallback: function(response) {
+        },
+        errorCallback : function(response) {
+            //에러가 발생했을 경우 순번 삭제 후 아무것도 하지 않음
+        },
+        successRun : true //대기열 진입 시에도 계속 heartbeat 호출할 필요가 있을 경우 true(상품 품절 체크 등의 이슈)
+    });
+
+    //dom 로드된 후 아래 코드 호출
+    //oSequenceManager.requestSequence();
+</script>
+
+
+    <input type="hidden" id="GA_VIEW_ID" value="UA-93980439-1" />
+
+
+
+    <input type="hidden" id="GA_USER_ID" value="0000254839" />
+    <input type="hidden" id="GA_DIMENSION01" value="NEXT" /> 
+
+
+    <input type="hidden" id="GA_DIMENSION02" value="NEXT" /> 
+    <input type="hidden" id="GA_DIMENSION03" value="boostcourse-ios" /> 
+    <input type="hidden" id="GA_DIMENSION04" value="STUDENT" /> 
+    <input type="hidden" id="GA_DIMENSION07" value="ALWAYS_OPEN" /> 
+    <input type="hidden" id="GA_DIMENSION08" value="BC_LEC" /> 
+    <input type="hidden" id="GA_DIMENSION09" value="16842" /> 
+
+<input type="hidden" id="GA_DIMENSION05" value="NEXT" /> 
+<input type="hidden" id="GA_DIMENSION06" value="PC_WEB" /> 
+
+<script>
+    
+		
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+
+    (function() {
+        function gaGetInfo() {
+            var gaInfo = {
+                viewId: document.getElementById('GA_VIEW_ID').value,
+                userId: document.getElementById('GA_USER_ID').value,
+                dimension01: document.getElementById('GA_DIMENSION01').value,
+                dimension02: document.getElementById('GA_DIMENSION02').value,
+                dimension03: document.getElementById('GA_DIMENSION03').value,
+                dimension04: document.getElementById('GA_DIMENSION04').value,
+                dimension05: document.getElementById('GA_DIMENSION05').value,
+                dimension06: document.getElementById('GA_DIMENSION06').value,
+                dimension07: document.getElementById('GA_DIMENSION07').value,
+                dimension08: document.getElementById('GA_DIMENSION08').value,
+                dimension09: document.getElementById('GA_DIMENSION09').value
+            };
+
+            return gaInfo;
+        }
+
+
+        function gaHitPageView() {
+            var gaInfo = gaGetInfo();
+            var ga = window.ga;
+
+            ga('create', gaInfo.viewId, 'auto');
+            ga('set', 'userId', gaInfo.userId);
+            ga('set', 'dimension1', gaInfo.dimension01);
+            ga('set', 'dimension2', gaInfo.dimension02);
+            ga('set', 'dimension3', gaInfo.dimension03);
+            ga('set', 'dimension4', gaInfo.dimension04);
+            ga('set', 'dimension5', gaInfo.dimension05);
+            ga('set', 'dimension6', gaInfo.dimension06);
+            ga('set', 'dimension7', gaInfo.dimension07);
+            ga('set', 'dimension8', gaInfo.dimension08);
+            ga('set', 'dimension9', gaInfo.dimension09);
+
+            ga('send', 'pageview');
+        }
+
+        function gaSimpleHitPageView(page) {
+            ga('set', 'page', page);
+            ga('send', 'pageview');
+        }
+
+        window.gaHitPageView = gaSimpleHitPageView;
+
+        
+        /*ga('send', {
+            hitType: 'event',
+            eventCategory: 'video',
+            eventAction: 'play',
+            eventLabel: 'media play'
+        });*/
+
+        gaHitPageView();
+    })();
+</script>
+
+
+
+
+<div class="modal_wrap ce_preview" id="_modal_wrap" style="display:none">
+	<div class="modal_inner">
+	    <!-- 애니메이션 영역 [??] -->
+	    <div class="modal_container" data-md-content></div>
+	    <div class="modal_dimmed"><iframe frameborder="0" src="about:blank" title="For bug fixes"></iframe></div>
+    </div>
+</div>
+<div id="u_skip">
+    
+        <a href="#gnb" onclick="document.getElementById('gnb').tabIndex=-1;document.getElementById('gnb').focus();return false;"><span>Go to personal menu</span></a>
+    
+    
+    
+    <a href="#snb" onclick="document.getElementById('snb').tabIndex=-1;document.getElementById('snb').focus();return false;"><span>Go to sub menu</span></a>
+    
+    <a href="#content" onclick="document.getElementById('content').tabIndex=-1;document.getElementById('content').focus();return false;"><span>Go to text</span></a>
+</div>
+<!-- #breadcrumb:layouts/course.gsp -->
+<div id="wrap">
+    <header id="header" class="sub">
+        <div class="layout_in" data-wrap-gnb-menu>
+            
+
+
+    
+        
+    
+<h1 class="logo"><a class="N=a:gnb.edwith" href="/"><img src="https://ssl.pstatic.net/static/m/mooc/p/partner/next/logo_v4.png"  alt="edwith"></a></h1>
+
+
+
+<ul class="lnk">
+    
+        <li><a href="/search/index">All courses</a></li>
+        <li class="boost_c"><a href="/boost-course/intro">boostcourse</a></li>
+        <li><a href="/ptnr">Partner</a></li>
+        
+    
+    
+</ul>
+<ul class="gnb" id="gnb">
+    
+        <li class="lecture_build">
+            <a href="/onlineclass">강좌만들기</a>
+        </li>
+    
+    
+    
+        
+            
+        
+    
+    <li data-gnb-menu="myCourse" title="My course">
+        <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown" class="ico_gnb_lec_b"><span class="sr_only">My course</span></a>
+
+        <div class="ly_dropdown">
+            <div class="ly_top">
+                <h2 class="tit">My course</h2><a href="/myPage/joinList" class="more">View All</a>
+            </div>
+            <ul class="ly_course" data-list="course">
+            
+                
+                    
+                        <li>
+                            <a href="/boostcourse-ios/home">
+                                
+                                    <div class="thumb bgnone">
+                                        <img src="https://cphinf.pstatic.net/mooc/20181107_174/1541564349012A76UJ_PNG/__iOS.png?type=ffn112_63" width="112" height="63">
+                                    </div>
+                                
+                                <div class="info">
+                                    <div class="ti ">[부스트코스] iOS 프로그래밍</div>
+
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/boostcamp_ios/home">
+                                
+                                    <div class="thumb bgnone">
+                                        <img src="https://cphinf.pstatic.net/mooc/20181107_118/1541564586587yzhTh_PNG/__Swift__.png?type=ffn112_63" width="112" height="63">
+                                    </div>
+                                
+                                <div class="info">
+                                    <div class="ti ">[부스트코스] iOS 프로그래밍을 위한 스위프트 기초</div>
+
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/boostcourse-web/home">
+                                
+                                    <div class="thumb bgnone">
+                                        <img src="https://cphinf.pstatic.net/mooc/20181107_75/15415644003851cyt4_PNG/__.png?type=ffn112_63" width="112" height="63">
+                                    </div>
+                                
+                                <div class="info">
+                                    <div class="ti ">[부스트코스] 웹 프로그래밍</div>
+
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/boostcourse-web-be/home">
+                                
+                                    <div class="thumb bgnone">
+                                        <img src="https://cphinf.pstatic.net/mooc/20200305_289/1583377395385CX6g9_JPEG/_1.0.jpg?type=ffn112_63" width="112" height="63">
+                                    </div>
+                                
+                                <div class="info">
+                                    <div class="ti ">[부스트코스] 웹 백엔드</div>
+
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/cs50/home">
+                                
+                                    <div class="thumb bgnone">
+                                        <img src="https://cphinf.pstatic.net/mooc/20200219_106/158208932946835698_JPEG/CS502.jpg?type=ffn112_63" width="112" height="63">
+                                    </div>
+                                
+                                <div class="info">
+                                    <div class="ti ">[해외명강] 컴퓨터 과학 교양 강좌: CS50</div>
+
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                
+            
+            </ul>
+        </div>
+    </li>
+    <li data-gnb-menu="myTodo" title="To do">
+        <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown" class="ico_gnb_todo_b"><span class="sr_only">To do</span></a><span class="count"><em>0</em></span>
+
+        <div class="ly_dropdown">
+            <div class="ly_top">
+                <h2 class="tit">To do</h2><a href="/myPage/toDoList" class="more">View All</a>
+            </div>
+            <ul class="todo_lst" data-list="todo">
+            </ul>
+            <button type="button" class="btn_jumpbar" data-btn-dday-jump><span>D-Day</span></button>
+        </div>
+    </li>
+    <li data-gnb-menu="myNews" title="My news">
+        <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown" class="ico_gnb_news_b"><span class="sr_only">My news</span></a><span class="count"><em>N</em></span>
+
+        <div class="ly_dropdown">
+            <div class="ly_top"><h2 class="tit">My news</h2><a href="/myPage/newsList" class="more">View All</a></div>
+
+            <ul class="noti_lst" data-list="news">
+            </ul>
+        </div>
+
+    </li>
+    
+    
+<li class="nickname" data-gnb-menu="myLogin">
+    <a href="javascript:void(0);" data-markup-gnb=".ly_dropdown" title="My menu">
+        
+        <span class="thumb bgnone">
+            <img data-gnb-profile-image src="https://cphinf.pstatic.net/mooc/20180331_102/15224705672462eGIT_JPEG/7fz4etpoPWxyI66iWDOV.JPG?type=ff32_32_r" width="32" height="32" alt="훈">
+        </span>
+        
+    </a>
+
+    <div class="ly_dropdown">
+        <ul>
+            
+            <li><a href="/myPage/recentlyPlayedList" title="Recently played videos" >Recently played videos</a></li>
+            <li><a href="/myPage/joinList" title="My course" >My course</a></li>
+            <li><a href="/userInfo/base-info" title="Personal Information" >Personal Information</a></li>
+            <li><a href="/logout" title="Log out">Log out</a></li>
+        </ul>
+    </div>
+</li>
+
+
+
+</ul>
+
+
+<input type="hidden" id="__isLogged" value="org.nhnnext.mooc.user.SecUser : 254839">
+
+    
+    
+
+<script src="/static/js/src/entries/common/_gnbmenu.entry.browserfied.min.js?200904_56277ac5"></script>
+<script>
+    $(document).ready(function() {
+        var entry = require("/entries/common/_gnbmenu.entry.js");
+        entry.initialize({
+            isLogged : $.trim( $("#__isLogged").val() ) === "" ? false : true,
+            isClosedPartner : false,
+            courseId: '1904'
+        });
+    });
+</script>
+        </div>
+        <div id="ie8_skin"></div>
+        <div id="skin_img" class="skin_img"><span class="mask"></span></div>
+		<div class="hd_txt">
+            <div class="inner NE=a:ltp">
+                <div class="label_box">
+                    
+                        <div class="project">PROJECT</div>
+                    
+
+                    
+                        <div class="level advanced">
+                            <span class="blind">난이도</span>
+                            <div class="icon level3">
+                                <span class="level_bg"></span>
+                                <span class="level_bg"></span>
+                                <span class="level_bg"></span>
+                            </div>
+                            심화
+                        </div>
+                    
+                </div>
+
+                <h2 class="">
+                    <a href="/boostcourse-ios/home" class="NPI=a:title" id="_courseName">[부스트코스] iOS 프로그래밍</a>
+                </h2>
+
+                
+                
+                
+                <span class="profile">
+                    
+                    <span class="thumb bgnone"><img src="https://cphinf.pstatic.net/mooc/20180326_138/1522047938973n1bCc_JPEG/boostcourse_2.jpg?type=ff42_42_r" width="24" height="24" alt=""></span>
+                    
+                    <span class="name">부스트코스</span>
+                    <span class="bar"></span>
+                        <span class="from">edwith</span>
+                    
+                </span>
+                
+
+                <div class="lecture_sub_tool">
+                    <div class="count_info">
+                        <span class="count_like"><em>좋아요</em> 612</span>
+                        <span class="count_observe"><em>Learner</em> 8502</span>
+                    </div>
+
+                    
+
+                    
+
+                    
+<div class="sns_area _sns_area">
+    <button type="button" class="btn sns_share" data-sns-share><span class="sr_only">Share</span></button>
+    <div class="sns_layer " data-sns-layer>
+        <span class="arrow"></span>
+        <div class="inner">
+            <a href="#" class="ico_url" data-type="urlCopy" data-clipboard-text="www.edwith.org/boostcourse-ios">Copy URL</a>
+            
+            <a href="#" class="ico_band" data-type="band">BAND</a>
+            <a href="#" class="ico_facebook" data-type="facebook">Facebook</a>
+            <a href="#" class="ico_twitter" data-type="twitter">Twitter</a>
+            
+        </div>
+    </div>
+</div>
+    
+<div id="_band_share_content" style="display:none">[부스트코스] iOS 프로그래밍</div>
+<div id="_twitter_share_content" style="display:none">[부스트코스] iOS 프로그래밍</div>
+<div style="width:1px;height:1px;font-size:0;line-height:0;color:transparent"><span id="urlCopy">http://www.edwith.org/boostcourse-ios/lecture/16842/</span></div>
+<script src="/static/js/src/entries/common/_sns.share.service.entry.browserfied.min.js?200904_56277ac5"></script>
+<script>
+$(document).ready(function(){
+    var courseUrl = 'https://www.edwith.org/boostcourse-ios';
+    var entry = require("/entries/common/_sns.share.service.entry.js");
+    var htData = {
+            facebook : [courseUrl, '1441124829481137', 'http://www.edwith.org/popupClose'],
+            twitter : [courseUrl, $("#_twitter_share_content").text(),  '',  ''],
+            googlePlus : [courseUrl],
+            band : [courseUrl, $("#_band_share_content").text()],
+            url: courseUrl
+        };
+    entry.initialize($('._sns_area'), htData);
+});
+</script>
+
+                    
+
+<!-- #breadcrumb:views/common/_skin.gsp -->
+
+<script>
+    function changeSkin(skinUrl) {
+        if (skinUrl) {
+            $("#skin_img").before().css("background-image", "url("+ skinUrl +")");
+        }
+        var ie8_skinStyle = '<style>.ie8 .skin_img{background-image:none !important;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="'+ skinUrl +'", sizingMethod="scale");}</style>';
+        $("#ie8_skin").html(ie8_skinStyle);
+    }
+
+    changeSkin("https://cphinf.pstatic.net/mooc/20180409_102/1523240150395bICNp_PNG/3.0__.png");
+</script>
+
+
+                </div>
+            </div>
+        </div>
+	</header>
+    
+    <div id="container">
+    
+        <div id="snb">
+            
+
+<nav>
+    <h2 class="sr_only">Sub menu</h2>
+    <ul class="NE=a:lmn">
+    
+    
+        
+    
+    <!-- [D] 선택된 메뉴에 .active 추가
+                 구분선 추가시 li 안쪽에 <span class="hr"></span> 추가-->
+    
+    
+        <li class=""><a href="/boostcourse-ios/notices/12898" title="공지사항" class="NPI=a:notice"><span class="menu">공지사항</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/notices/29278" title="강좌 후기 모음" class="NPI=a:notice"><span class="menu">강좌 후기 모음</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/forums/15622" title="수강생 토론 게시판" class="NPI=a:discuss"><span class="menu">수강생 토론 게시판</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/forums/18213" title="리뷰어님께 감사의 마음을 전합니다!" class="NPI=a:discuss"><span class="menu">리뷰어님께 감사의 마음을 전합니다!</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/12966" title="오리엔테이션" class="NPI=a:lectures"><span class="menu">오리엔테이션</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class="active"><span class="hr"></span><a href="/boostcourse-ios/joinLectures/12899" title="1. 음원 재생기 애플리케이션" class="NPI=a:lectures"><span class="menu">1. 음원 재생기 애플리케이션</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/joinLectures/12968" title="프로젝트A. MusicPlayer" class="NPI=a:lectures"><span class="menu">프로젝트A. MusicPlayer</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/12970" title="2. 회원가입 화면 구현" class="NPI=a:lectures"><span class="menu">2. 회원가입 화면 구현</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/joinLectures/12971" title="프로젝트B. SignUp" class="NPI=a:lectures"><span class="menu">프로젝트B. SignUp</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/12973" title="3. 기상정보 애플리케이션" class="NPI=a:lectures"><span class="menu">3. 기상정보 애플리케이션</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/joinLectures/12974" title="프로젝트C. Weather" class="NPI=a:lectures"><span class="menu">프로젝트C. Weather</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/12976" title="4. 내 사진 관리 애플리케이션" class="NPI=a:lectures"><span class="menu">4. 내 사진 관리 애플리케이션</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/joinLectures/12977" title="프로젝트D. Album" class="NPI=a:lectures"><span class="menu">프로젝트D. Album</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/12979" title="5. 영화정보 애플리케이션" class="NPI=a:lectures"><span class="menu">5. 영화정보 애플리케이션</span></a></li>
+        
+            
+        
+    
+        <li class=""><a href="/boostcourse-ios/joinLectures/12980" title="프로젝트E. BoxOffice" class="NPI=a:lectures"><span class="menu">프로젝트E. BoxOffice</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/20874" title="설계자 특강" class="NPI=a:lectures"><span class="menu">설계자 특강</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+        <li class=""><span class="hr"></span><a href="/boostcourse-ios/joinLectures/15960" title="코스를 마치며" class="NPI=a:lectures"><span class="menu">코스를 마치며</span></a></li>
+        
+            
+        
+    
+        <li class="ext "><a href="https://docs.google.com/presentation/d/1d2ZwjqqEB80DogJOEwpsuDlGU8RtJaahXN8j1D9p1fE/edit#slide=id.g41149a17fe_2_0" target="_blank"><span class="menu">전문가 리뷰 플랫폼 가이드</span></a></li>
+        
+            
+        
+    
+        
+        
+            
+        
+    
+
+    
+        <li class="last"><span class="hr"></span></li>
+    
+    </ul>
+    
+    <ul class="ad" id="menuUl">
+        
+        
+        
+    </ul>
+    
+    
+</nav>
+
+<script src="/static/js/src/entries/common/_snbmenu.entry.browserfied.min.js?200904_56277ac5"></script>
+
+<script>
+    $(document).ready(function(){
+        var entry = require("/entries/common/_snbmenu.entry.js");
+        // entry.initialize();
+
+        entry.initialize({
+            data : {
+                course: "boostcourse-ios"
+            },
+            title : '[부스트코스] iOS 프로그래밍',
+            useQuestion : false,
+            courseUri: 'boostcourse-ios',
+            isShareGuest : false
+        });
+    });
+</script>
+
+
+            
+            
+        </div>
+        <div id="content">
+            
+
+<!-- #breadcrumb:lecture/show.gsp -->
+<section class="page forum _warp_lecture_content" data-hasMobile="true">
+    
+    
+    
+    
+
+    <!--page_header-->
+    <header class="page_header">
+        <div class="group_lr mab10">
+            <div class="group_l">
+                <h1 class="page_title "> 1) 프로젝트에 이미지 추가하기</h1>
+            </div>
+            
+                <div class="group_r">
+                    
+                    
+                </div>
+            
+        </div>
+        
+    </header>
+    <!--//page_header-->
+
+    <div class="user_info_view ce ce_view">
+        
+        <input type="hidden" id="__MATERIALS" data-selector="materials" value='[{&quot;id&quot;:46941,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt;\&quot; data-mce-style=\&quot;font-size: 18pt;\&quot;&gt;&lt;strong&gt;&lt;span style=\&quot;color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;color: #008000;\&quot;&gt;프로젝트에 이미지 추가하기&lt;\u002fspan&gt;&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;Xcode에 조금 익숙해 졌나요?&lt;\u002fp&gt;&lt;p&gt;이번 시간에는 에셋(asset)을 이용해 프로젝트에서 사용할 이미지를 추가하는 방법에 대해 알아보고&lt;\u002fp&gt;&lt;p&gt;에셋이란 무엇인지 공부해보도록 합시다.&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;학습 목표&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;1. 에셋과 관련된 개념에 대해 이해합니다.&lt;\u002fp&gt;&lt;p&gt;2. 에셋을 이용해 프로젝트에 사용할 이미지를 추가할 수 있습니다.&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;핵심 키워드&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;ul&gt;&lt;li&gt;에셋 카탈로그(Asset Catalog)&lt;\u002fli&gt;&lt;li&gt;앱 슬라이싱(App Slicing)&lt;br&gt;&lt;\u002fli&gt;&lt;li&gt;앱 시닝(App Thinning)&lt;\u002fli&gt;&lt;\u002ful&gt;&lt;p&gt;&lt;code&gt;&lt;\u002fcode&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true,&quot;plainText&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt;\&quot; data-mce-style=\&quot;font-size: 18pt;\&quot;&gt;&lt;strong&gt;&lt;span style=\&quot;color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;color: #008000;\&quot;&gt;Xcode 톺아보기&lt;\u002fspan&gt;&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;이번시간에는 Xcode가 무엇인지 자세히 알아보고 여러가지 기본 기능을 사용해보도록 하겠습니다.&lt;\u002fp&gt;&lt;p&gt;* 톺아보기:&amp;nbsp;&lt;span&gt;샅샅이 톺아 나가면서 살피다&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;학습 목표&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;1. Xcode가 무엇인지 이해합니다.&lt;\u002fp&gt;&lt;p&gt;2. Xcode의 기본 화면이 어떻게 구성되어있는지, 각 메뉴에 어떤 기능이 있는지 이해합니다.&lt;\u002fp&gt;&lt;p&gt;3. 프로젝트를 장비 혹은 시뮬레이터를 실행시킬 수 있습니다.&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;hr&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;code&gt;&lt;\u002fcode&gt;&lt;\u002fp&gt;&quot;},{&quot;id&quot;:46943,&quot;title&quot;:&quot;&quot;,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;학습하기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;에셋 카탈로그란?&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;Xcode에서 프로젝트를 처음 생성하면 &lt;strong&gt;Asstes.xcassets&amp;nbsp;&lt;\u002fstrong&gt;이라는 폴더가 자동으로 생성되는데, 이 폴더에서 애플리케이션에 사용될 다양한 에셋을 관리하며, 이를 에셋 카탈로그라고 합니다.&lt;\u002fp&gt;&lt;p&gt;에셋 카탈로그는 에셋과 다양한 디바이스의 속성에 대한 파일의 연결을(mapping) 통해서 애플리케이션 리소스에 쉽게 접근할 수 있도록 도와줍니다. (리소스는 애플리케이션이 실행 중일 때 사용하는 이미지와 음악 파일 등을 말합니다.) 여기서 말하는 속성은 디바이스의 특징, 사이즈 클래스, 주문형 리소스, 특정 타입의 정보를 포함하고 있습니다.&amp;nbsp;&lt;\u002fp&gt;&lt;p&gt;에셋 카탈로그에 관한 더 자세한 정보는 아래링크1.&lt;a href=\&quot;http://help.apple.com/xcode/mac/current/#/dev10510b1f7\&quot; rel=\&quot;nofollow noopener noreferrer\&quot; data-mce-href=\&quot;http://help.apple.com/xcode/mac/current/#/dev10510b1f7\&quot; target=\&quot;_blank\&quot;&gt;Asset catalogs&lt;\u002fa&gt;를 참조하세요.&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;&lt;\u002fspan&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;에셋 카탈로그 구성&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;에셋 카탈로그가 어떻게 구성 되어 있으며, 각 요소는 어떤 역할을 하는지 이미지와 함께 살펴보도록 합시다.&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:&quot;16841&quot;,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;filename&quot;:&quot;&quot;,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true,&quot;plainText&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;학습하기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;Xcode란?&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;Xcode는 애플의 통합 개발 환경(IDE - integrated development environment)입니다. &lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;주로 애플사의 제품(iPad, iPhone, Apple Watch, Apple TV, Mac)의 애플리케이션을 제작하기 위해 사용합니다. &lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;물론 애플사의 제품 외에도 다양한 환경의 애플리케이션도 제작할 수 있습니다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;Xcode 기본 화면 및 메뉴 구성&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;Xcode에 익숙해지기 위해 기본 화면과 메뉴가 어떻게 구성되어있으며, 각 기능이 무엇인지에 대해 스크린샷을 보면서 하나하나 살펴보도록 합시다.&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1285,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_74/1514625555079AlogH_PNG/figure1_1.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_74/1514625555079AlogH_PNG/figure1_1.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46944,&quot;fileSize&quot;:270045,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:632,&quot;attachmentId&quot;:27068,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;- Groups : 그룹은 한 개 이상의 또 다른 그룹이나 에셋을 가질 수 있습니다.\n- Assets : 에셋은 한 가지 타입의 관련된 속성과 파일들의 집합을 나타냅니다.\n- 에셋 이름(Asset name)은 에셋에 접근하기 위해 개발자가 정의한 문자열입니다.\n- 에셋 파일(Asset files)은 선택한 에셋의 데이터 파일 또는 리소스 입니다.\n- Attributes : 속성은 선택한 그룹, 에셋, 에셋파일의 속성을 나타냅니다. (속성 인스펙터를 선택하면 볼 수 있습니다.)\n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27068&quot;,&quot;filename&quot;:&quot;figure1_1.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1552,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_2/1514625634102Cxdcv_PNG/asset_variation.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_2/1514625634102Cxdcv_PNG/asset_variation.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46945,&quot;fileSize&quot;:330922,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:1004,&quot;attachmentId&quot;:27069,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;- Asset variations : 위 그림에서 선택된 하나의 조각(에셋 파일들의 집합)을 나타냅니다. 이 조각은 같은 속성 값(value)이 적용되는 단위입니다. \n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27069&quot;,&quot;filename&quot;:&quot;asset_variation.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:325,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_268/151462568029977AD4_PNG/format_image.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_268/151462568029977AD4_PNG/format_image.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46946,&quot;fileSize&quot;:49946,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:483,&quot;attachmentId&quot;:27070,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;에셋 카탈로그의 콘텐츠는 3가지 타입을 갖습니다.\n\n- Folders : 에셋 카탈로그 폴더는 다른 그룹 폴더나 에셋 폴더를 포함할 수 있습니다. 파일시스템의 폴더 이름은 대체적으로 확장자를 갖지 않습니다. 하지만 에셋 카탈로그 폴더는 위의 그림과 같이 해당 에셋 타입의 확장자가 자동으로 붙습니다.\n- JSON files : .json 확장자 파일로써 속성에 대한 정보를 포함하고 있습니다.\n- Content files : 콘텐츠 파일은 리소스 파일을 나타냅니다.\n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27070&quot;,&quot;filename&quot;:&quot;format_image.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1050,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_34/1514625756206RFIgC_PNG/figure2_1.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_34/1514625756206RFIgC_PNG/figure2_1.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46947,&quot;fileSize&quot;:110860,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:348,&quot;attachmentId&quot;:27071,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;이 그림은 에셋 카탈로그 폴더의 구조를 나타냅니다.\n\n- Asset catalog folder : 에셋 카탈로그 폴더는 모든 폴더와 파일들을 갖고 있습니다.\n- Group folder : 그룹 폴더는 다른 그룹 폴더나 에셋 폴더를 갖고 있습니다.\n- Asset folder : 에셋 폴더는 리소스 파일들을 갖고 있습니다.\n\n\n* 프로젝트 내의 같은 타겟에는 에셋(폴더)의 이름은 반드시 고유해야 합니다. 리소스 타입에 상관없이 이름은 고유해야 합니다.\n\n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27071&quot;,&quot;filename&quot;:&quot;figure2_1.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;id&quot;:46948,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;에셋 카탈로그 타입&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;에셋 카탈로그의 대표적인 타입과 확장자에 대해 알아봅시다.&lt;\u002fp&gt;&lt;table class=\&quot;mce-item-table\&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th align=\&quot;left\&quot;&gt;폴더 타입&lt;\u002fth&gt;&lt;th align=\&quot;left\&quot;&gt;확장자&lt;\u002fth&gt;&lt;th align=\&quot;left\&quot;&gt;설명&lt;\u002fth&gt;&lt;\u002ftr&gt;&lt;\u002fthead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td align=\&quot;left\&quot;&gt;App Icon Type&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;.appiconset&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;애플리케이션의 아이콘 입니다.&lt;\u002ftd&gt;&lt;\u002ftr&gt;&lt;tr&gt;&lt;td align=\&quot;left\&quot;&gt;Catalog Type&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;.xcassets&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;에셋 카탈로그의 최상위 폴더입니다.&lt;\u002ftd&gt;&lt;\u002ftr&gt;&lt;tr&gt;&lt;td align=\&quot;left\&quot;&gt;Image Set Type&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;.imageset&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;객체들이 사용하는 이미지입니다.&lt;\u002ftd&gt;&lt;\u002ftr&gt;&lt;tr&gt;&lt;td align=\&quot;left\&quot;&gt;Data Set Type&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;.dataset&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;애플리케이션에서 사용되는 데이터 파일입니다.&lt;\u002ftd&gt;&lt;\u002ftr&gt;&lt;tr&gt;&lt;td align=\&quot;left\&quot;&gt;Launch Image Type&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;.launchimage&lt;\u002ftd&gt;&lt;td align=\&quot;left\&quot;&gt;애플리케이션의 실행화면 이미지입니다.&lt;\u002ftd&gt;&lt;\u002ftr&gt;&lt;\u002ftbody&gt;&lt;\u002ftable&gt;&lt;ul&gt;&lt;li&gt;App Icon Type : 다양한 크기와 해상도의 애플리케이션 아이콘 원본 이미지입니다.&lt;\u002fli&gt;&lt;li&gt;Catalog Type : 에셋 카탈로그 폴더구조의 최상위 폴더입니다. 한 개의 에셋 카탈로그에 하나만 존재할 수 있습니다.&lt;\u002fli&gt;&lt;li&gt;Image Set Type : 이미지 에셋에서 UIImage와 NSImage의 인스턴스에 사용되는 이미지 파일입니다.&lt;\u002fli&gt;&lt;li&gt;Data Set Type : 장치 실행 가능 코드(device-executable code)를 제외한 Xcode에 의해 생성된 모든 종류의 데이터를 포함하는 파일들의 집합입니다.&lt;\u002fli&gt;&lt;li&gt;Launch Image Type : 애플리케이션 실행화면 이미지입니다. (iOS 7.0 이하 버전에만 필요합니다. iOS 8.0 버전 이상은 기본적으로 실행화면 스토리보드(launch screen storyboard)를 사용합니다.)&lt;\u002fli&gt;&lt;li&gt;자세한 내용은 아래 링크2.&lt;a href=\&quot;https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AssetTypes.html\&quot; rel=\&quot;nofollow\&quot; data-mce-href=\&quot;https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AssetTypes.html\&quot; target=\&quot;_blank\&quot;&gt;Type Reference&lt;\u002fa&gt;를 참조하세요.&lt;\u002fli&gt;&lt;\u002ful&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;id&quot;:46949,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;앱 시닝과 앱 슬라이싱이란?&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;앱 시닝(app thinning)이란?&lt;\u002fstrong&gt;&lt;\u002fli&gt;&lt;\u002ful&gt;&lt;blockquote&gt;&lt;p&gt;앱 시닝이란 애플리케이션이 디바이스에 설치될 때 앱 스토어와 운영체제가 그 디바이스의 특성에 맞게 설치하도록 하는 설치 최적화 기술을 의미합니다. 이를 통해 애플리케이션의 설치용량을 최소화하고 다운로드의 속도를 향상시킬 수 있습니다. 앱 시닝(app thinning)의 기술 구성요소는 슬라이싱(slicing), 비트코드(bitcode), 주문형 리소스(on-demand resource)가 있습니다.&lt;\u002fp&gt;&lt;\u002fblockquote&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;슬라이싱(slicing)이란?&lt;\u002fstrong&gt;&lt;\u002fli&gt;&lt;\u002ful&gt;&lt;blockquote&gt;&lt;p&gt;슬라이싱(slicing)은 애플리케이션이 지원하는 다양한 디바이스에 대한 여러 조각의 애플리케이션 번들(app bundle)을 생성하고 디바이스에 알맞은 조각을 전달하는 기술입니다. 개발자가 애플리케이션의 전체 버전을 iTunes Connect에 업로드하게 되면, 앱 스토어에는 각 디바이스 특성에 다양한 버전의 조각들이 생성됩니다. 사용자가 애플리케이션을 설치할 때 전체 버전이 아닌 슬라이싱(slicing)된 조각들 중 사용자의 디바이스의 가장 적합한 조각이 다운로드되어 설치됩니다. 에셋 카탈로그에서 관리하는 이미지들은 자동으로 적용이 됩니다.(슬라이싱(slicing)은 iOS 9.0 이상버전 이상만 지원합니다.)&lt;\u002fp&gt;&lt;p&gt;* iTunes Connect란 개발자가 앱 스토어에 판매할 애플리케이션을 제출하고 관리할 수 있도록 도와주는 웹 기반 도구입니다.&lt;\u002fp&gt;&lt;\u002fblockquote&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1654,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_100/1514625945492PozUu_PNG/slicing.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_100/1514625945492PozUu_PNG/slicing.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46950,&quot;fileSize&quot;:286831,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:988,&quot;attachmentId&quot;:27072,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27072&quot;,&quot;filename&quot;:&quot;slicing.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;id&quot;:46951,&quot;text&quot;:&quot;&lt;hr&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;span style=\&quot;font-size: 14pt;\&quot; data-mce-style=\&quot;font-size: 14pt;\&quot;&gt;&lt;strong&gt;이미지 추가하기&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&lt;p&gt;에셋에 대해 개념이 잡혔다면 실제로 사용할 이미지를 추가해 보도록 하겠습니다.&lt;\u002fp&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:493,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_84/1514626086659iRrhJ_PNG/insert1.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_84/1514626086659iRrhJ_PNG/insert1.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46952,&quot;fileSize&quot;:131478,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:581,&quot;attachmentId&quot;:27073,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;내비게이터에서 에셋 카탈로그를 선택 후 위의 그림과 같이 +버튼을 클릭하고 팝업창이 뜨면 [New Image Set]을 클릭합니다.\n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27073&quot;,&quot;filename&quot;:&quot;insert1.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:683,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_70/1514626105716QpRPk_PNG/insert2.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_70/1514626105716QpRPk_PNG/insert2.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46953,&quot;fileSize&quot;:52176,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:234,&quot;attachmentId&quot;:27074,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;에셋을 선택한 후 삽입하려는 이미지를 에셋파일에 드래그하여 놓습니다. \n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27074&quot;,&quot;filename&quot;:&quot;insert2.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1494,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_135/15146261189701wonC_PNG/insert3.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;top&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_135/15146261189701wonC_PNG/insert3.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46954,&quot;fileSize&quot;:67253,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:364,&quot;attachmentId&quot;:27075,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;위와 같이 이미지가 에셋에 추가됩니다. \n\n&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27075&quot;,&quot;filename&quot;:&quot;insert3.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;id&quot;:47157,&quot;text&quot;:&quot;&lt;hr&gt;&lt;p&gt;&lt;br&gt;&lt;\u002fp&gt;&lt;p&gt;아래 과일 이미지를 다운받아 직접 Xcode에 추가해보세요!&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:1388,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_66/1514626140311SBHxk_PNG/banana.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;left&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_66/1514626140311SBHxk_PNG/banana.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46955,&quot;fileSize&quot;:925987,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:895,&quot;attachmentId&quot;:27076,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27076&quot;,&quot;filename&quot;:&quot;banana.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:708,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_87/1514626170418ruVUk_PNG/apple.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;left&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_87/1514626170418ruVUk_PNG/apple.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46956,&quot;fileSize&quot;:273343,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:720,&quot;attachmentId&quot;:27077,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27077&quot;,&quot;filename&quot;:&quot;apple.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:true,&quot;isUploading&quot;:false,&quot;width&quot;:478,&quot;at&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_106/1514626173666yWtlo_PNG/carrot.png&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;left&quot;,&quot;type&quot;:&quot;Image&quot;,&quot;url&quot;:&quot;https://cphinf.pstatic.net/mooc/20171230_106/1514626173666yWtlo_PNG/carrot.png&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;png&quot;,&quot;id&quot;:46957,&quot;fileSize&quot;:66425,&quot;title&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;height&quot;:242,&quot;attachmentId&quot;:27078,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=27078&quot;,&quot;filename&quot;:&quot;carrot.png&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;id&quot;:46958,&quot;title&quot;:&quot;&quot;,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;참고 링크&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:&quot;16841&quot;,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;filename&quot;:&quot;&quot;,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true,&quot;plainText&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: rgb(0, 128, 0);\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;참고 링크&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;},{&quot;videoHeight&quot;:0,&quot;isShowMaterial&quot;:false,&quot;orgLectureId&quot;:16842,&quot;contentType&quot;:&quot;web&quot;,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Url&quot;,&quot;ext&quot;:&quot;&quot;,&quot;id&quot;:46959,&quot;imageOrg&quot;:&quot;&quot;,&quot;title&quot;:&quot;1. 애플 공식 문서 - Asset Catalogs&quot;,&quot;height&quot;:&quot;&quot;,&quot;indexOrTime&quot;:-1,&quot;captions&quot;:[],&quot;lectureId&quot;:&quot;16842&quot;,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;에셋 카탈로그에 대한 개념에 대해 설명합니다.&quot;,&quot;sourceName&quot;:&quot;HELP&quot;,&quot;thumbnailId&quot;:&quot;&quot;,&quot;video&quot;:&quot;&quot;,&quot;controlTime&quot;:[],&quot;userUploadedImage&quot;:&quot;&quot;,&quot;isUploading&quot;:false,&quot;width&quot;:&quot;&quot;,&quot;image&quot;:&quot;&quot;,&quot;videoWidth&quot;:0,&quot;videoSourceId&quot;:0,&quot;viewType&quot;:&quot;left&quot;,&quot;videoType&quot;:&quot;&quot;,&quot;url&quot;:&quot;http://help.apple.com/xcode/mac/current/#/dev10510b1f7&quot;,&quot;duration&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;filename&quot;:&quot;&quot;,&quot;isLoaded&quot;:true},{&quot;videoHeight&quot;:0,&quot;isShowMaterial&quot;:false,&quot;orgLectureId&quot;:16842,&quot;contentType&quot;:&quot;web&quot;,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Url&quot;,&quot;ext&quot;:&quot;&quot;,&quot;id&quot;:46960,&quot;imageOrg&quot;:&quot;&quot;,&quot;title&quot;:&quot;2. 애플 공식 문서 - Types Reference&quot;,&quot;height&quot;:&quot;&quot;,&quot;indexOrTime&quot;:-1,&quot;captions&quot;:[],&quot;lectureId&quot;:&quot;16842&quot;,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;에셋 카탈로그의 타입에 대해 설명합니다.&quot;,&quot;sourceName&quot;:&quot;DEVELOPER&quot;,&quot;thumbnailId&quot;:&quot;&quot;,&quot;video&quot;:&quot;&quot;,&quot;controlTime&quot;:[],&quot;userUploadedImage&quot;:&quot;&quot;,&quot;isUploading&quot;:false,&quot;width&quot;:&quot;&quot;,&quot;image&quot;:&quot;&quot;,&quot;videoWidth&quot;:0,&quot;videoSourceId&quot;:0,&quot;viewType&quot;:&quot;left&quot;,&quot;videoType&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/AssetTypes.html&quot;,&quot;duration&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;filename&quot;:&quot;&quot;,&quot;isLoaded&quot;:true},{&quot;id&quot;:49171,&quot;text&quot;:&quot;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;id&quot;:49173,&quot;text&quot;:&quot;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;id&quot;:49174,&quot;text&quot;:&quot;&lt;p&gt;&lt;span style=\&quot;font-size: 18pt; color: #008000;\&quot; data-mce-style=\&quot;font-size: 18pt; color: #008000;\&quot;&gt;&lt;strong&gt;강의 영상&lt;\u002fstrong&gt;&lt;\u002fspan&gt;&lt;\u002fp&gt;&quot;,&quot;title&quot;:&quot;&quot;,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;isParsed&quot;:false,&quot;pageCount&quot;:0,&quot;isShowMaterial&quot;:false,&quot;isUploading&quot;:false,&quot;width&quot;:0,&quot;image&quot;:&quot;&quot;,&quot;orgLectureId&quot;:16842,&quot;viewType&quot;:&quot;&quot;,&quot;type&quot;:&quot;Doc&quot;,&quot;url&quot;:&quot;/downloadFile/fileDownload?attachmentId=28466&quot;,&quot;postId&quot;:0,&quot;ext&quot;:&quot;zip&quot;,&quot;id&quot;:49167,&quot;fileSize&quot;:336770,&quot;title&quot;:&quot;proj_1_assets_v1.0&quot;,&quot;playTime&quot;:0,&quot;height&quot;:0,&quot;attachmentId&quot;:28466,&quot;commonYn&quot;:false,&quot;description&quot;:&quot;실습에 필요한 에셋들입니다. 미리 다운로드 받아서 압축을 풀어주세요.&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=28466&quot;,&quot;filename&quot;:&quot;proj_1_assets.zip&quot;,&quot;isCopied&quot;:false,&quot;isLoaded&quot;:true},{&quot;playerHeight&quot;:&quot;439px&quot;,&quot;isShowMaterial&quot;:false,&quot;orgLectureId&quot;:16842,&quot;contentType&quot;:&quot;video&quot;,&quot;type&quot;:&quot;Movie&quot;,&quot;downloadable&quot;:false,&quot;ext&quot;:&quot;mp4&quot;,&quot;id&quot;:52575,&quot;fileSize&quot;:0,&quot;title&quot;:&quot;프로젝트에 에셋 리소스 추가하기&quot;,&quot;height&quot;:1080,&quot;indexOrTime&quot;:0,&quot;captions&quot;:[{&quot;fileSize&quot;:3120,&quot;id&quot;:2197,&quot;langCodes&quot;:[&quot;ko_KR&quot;],&quot;filePath&quot;:&quot;9c770230-1ead-11e7-a248-000000006110/MUBHsmdKJMJZMWn4epTU.srt&quot;,&quot;fileName&quot;:&quot;1_2_1.srt&quot;,&quot;downloadPath&quot;:&quot;//upload.edwith.org/caption/download?captionId=2197&quot;,&quot;langCodesTemplate&quot;:&quot;ko_KR&quot;,&quot;ext&quot;:&quot;srt&quot;}],&quot;attachmentId&quot;:30465,&quot;rmcCaptions&quot;:[],&quot;commonYn&quot;:false,&quot;description&quot;:&quot;영상 우측 하단에 자막 스크립트 ON 설정을 한 후 강의를 시청하시면 학습에 도움이 됩니다.\n\n애플리케이션에서 사용할 리소스 에셋을 프로젝트에 추가해봅니다.&quot;,&quot;thumbnailId&quot;:&quot;75EF33E1C137F5A65BE724E10033CB9032CF.5&quot;,&quot;resultCode&quot;:&quot;&quot;,&quot;downloadPath&quot;:&quot;/downloadFile/fileDownload?attachmentId=30465&quot;,&quot;isParsed&quot;:true,&quot;pageCount&quot;:0,&quot;controlTime&quot;:[],&quot;isUploading&quot;:false,&quot;userUploadedImage&quot;:&quot;&quot;,&quot;status&quot;:5,&quot;width&quot;:1920,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20180208_27/1518071128438JGsG6_JPEG/2i9SOzrHIoLHfPEpYHLK.jpg&quot;,&quot;viewType&quot;:&quot;left&quot;,&quot;playerWidth&quot;:&quot;720px&quot;,&quot;postId&quot;:9752,&quot;url&quot;:&quot;&quot;,&quot;playTime&quot;:125,&quot;filename&quot;:&quot;1_2_1.mp4&quot;,&quot;isCopied&quot;:false,&quot;videoIndexList&quot;:[],&quot;isLoaded&quot;:true,&quot;encodingPercentage&quot;:0},{&quot;id&quot;:133020,&quot;title&quot;:&quot;&quot;,&quot;text&quot;:&quot;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&lt;p&gt;&lt;br data-mce-bogus=\&quot;1\&quot;&gt;&lt;\u002fp&gt;&quot;,&quot;isShowMaterial&quot;:false,&quot;lectureId&quot;:&quot;16842&quot;,&quot;isUploading&quot;:false,&quot;description&quot;:&quot;&quot;,&quot;filename&quot;:&quot;&quot;,&quot;isCode&quot;:false,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;type&quot;:&quot;Text&quot;,&quot;isLoaded&quot;:true},{&quot;videoHeight&quot;:0,&quot;isShowMaterial&quot;:true,&quot;orgLectureId&quot;:16842,&quot;courseId&quot;:&quot;1904&quot;,&quot;contentType&quot;:&quot;image&quot;,&quot;type&quot;:&quot;Url&quot;,&quot;ext&quot;:&quot;&quot;,&quot;imageOrg&quot;:&quot;&quot;,&quot;id&quot;:133021,&quot;title&quot;:&quot;&amp;lt;강좌 추천&amp;gt; 예비 개발자의 좋은 시작, [부스트코스 : 안드로이드 프로그래밍] 입니다.&quot;,&quot;height&quot;:&quot;&quot;,&quot;indexOrTime&quot;:-1,&quot;lectureId&quot;:&quot;16842&quot;,&quot;captions&quot;:[],&quot;commonYn&quot;:false,&quot;sourceName&quot;:&quot;EDWITH&quot;,&quot;description&quot;:&quot;부스트코스는 NAVER 계열사 등과 함께 만들어가는 현장 중심 온라인 교육 프로그램입니다.\n현업전문가들이 고민하여 만들고 1:1 코드리뷰도 받을 수 있는 부스트코스에서 기업이 원하는 유능한 개발자로 boost하세요.&quot;,&quot;thumbnailId&quot;:&quot;&quot;,&quot;video&quot;:&quot;&quot;,&quot;controlTime&quot;:[],&quot;isUploading&quot;:false,&quot;userUploadedImage&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;videoWidth&quot;:0,&quot;image&quot;:&quot;https://cphinf.pstatic.net/mooc/20191126_29/1574736823549L9Cg2_PNG/LAvom2yDkyrk2b2uWpWI.png?type=ffn199_148&quot;,&quot;videoSourceId&quot;:0,&quot;viewType&quot;:&quot;left&quot;,&quot;videoType&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://www.edwith.org/boostcourse-android&quot;,&quot;duration&quot;:&quot;&quot;,&quot;playTime&quot;:0,&quot;filename&quot;:&quot;&quot;,&quot;isLoaded&quot;:true}]'>
+<input type="hidden" id="__COURSENAME" data-selector="courseName" value="boostcourse-ios">
+<script src="https://sstatic-rmcnmv.pstatic.net/resources/js/naver_web_player_2016_min.js?200904_56277ac5"></script>
+<script src="/static/js/src/entries/common/_material.entry.browserfied.min.js?200904_56277ac5"></script>
+
+<script>
+    $(document).ready(function(){
+        var entry = require("/entries/common/_material.entry.js");
+        entry.initialize({
+            welTarget: $(".ce_view"),
+            data: {
+                courseName: $("#__COURSENAME").val(),
+                materials: $.parseJSON($("#__MATERIALS").val()),
+                isEditable: false,
+                userId: '254839',
+                courseId: '1904',
+                lectureId: '16842',
+                videoType: 'LECTURE',    // 강의 상세페이지와 정보 페이지는 이 곳을 같이 사용하고 있네요.
+                videoTypeId: '16842',
+                isOpenAll: true,
+                liveInfo: {
+                    isLiveOpened: false,
+                    recentLiveStartTime: "",
+                    recentLiveEndTime: "",
+                    reservationStartTime: "",
+                    isShowLiveMaterial: true
+                }
+            }
+        });
+    });
+</script>
+<script src="/js/plugins/ntsYoutubeConnecter.1.0.min.js"></script>
+    </div>
+
+    
+
+    <div class="share NE=a:lec">
+        
+        <!-- tags -->
+        <dl class="tag_lst">
+            <dt class="ico_tag">Tag</dt>
+            <dd class="txt_tag">
+                
+                    <a href="/search/show?searchQuery=Asset" target="_blank">#Asset</a>,
+                
+                    <a href="/search/show?searchQuery=Slicing" target="_blank">#Slicing</a>,
+                
+                    <a href="/search/show?searchQuery=Thinning" target="_blank">#Thinning</a>,
+                
+                    <a href="/search/show?searchQuery=%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8B%B1" target="_blank">#슬라이싱</a>,
+                
+                    <a href="/search/show?searchQuery=%EC%95%B1%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8B%B1" target="_blank">#앱슬라이싱</a>,
+                
+                    <a href="/search/show?searchQuery=%EC%95%B1%EC%8B%9C%EB%8B%9D" target="_blank">#앱시닝</a>,
+                
+                    <a href="/search/show?searchQuery=%EC%97%90%EC%85%8B" target="_blank">#에셋</a>,
+                
+                    <a href="/search/show?searchQuery=%EC%97%90%EC%85%8B%EC%B9%B4%ED%83%88%EB%A1%9C%EA%B7%B8" target="_blank">#에셋카탈로그</a>
+                
+            </dd>
+        </dl>
+        <!--//tags -->
+        
+
+        <div class="group_lr">
+            <div class="group_l">
+                
+                
+    <div class="sns_area _content_sns_area">
+        <button type="button" class="btn btn_type2 bold" data-sns-share>Share</button>
+        <!-- [D] 활성화 시 class="on"추가, URL 복사만 출력할 경우 class="type2 추가" -->
+        <div class="sns_layer " data-sns-layer>
+            <div class="inner">
+                <a href="#" class="ico_url" data-type="urlCopy" data-clipboard-text="http://www.edwith.org/boostcourse-ios/lecture/16842/">Copy URL</a>
+                
+                <a href="#" class="ico_band" data-type="band">BAND</a>
+                <a href="#" class="ico_facebook" data-type="facebook">Facebook</a>
+                <a href="#" class="ico_twitter" data-type="twitter">Twitter</a>
+                
+            </div>
+        </div>
+    </div>
+    <div id="_band_share_content" style="display:none">1) 프로젝트에 이미지 추가하기
+프로젝트에 이미지 추가하기 Xcode에 조금 익숙해 졌나요? 이번 시간에는 에셋(asset)을 이용해 프로젝트에서 사용할 이미지를 추가하는 방법에 대해 알아보고 에셋이란 무엇인지 ...
+- 부스트코스</div>
+    <div id="_twitter_share_content" style="display:none">1) 프로젝트에 이미지 추가하기
+프로젝트에 이미지 추가하기 Xcode에 조금 익숙해 졌나요? 이번 시간에는 에셋(asset)을 이용해 프로젝트에서 사용할 이미지를 추가하는 방법에 대해 알아보고 에셋이란 무엇인지 ...
+- 부스트코스</div>
+    
+    <script src="/static/js/src/entries/common/_sns.share.service.entry.browserfied.min.js?200904_56277ac5"></script>
+    <script>
+    $(document).ready(function(){
+        var entry = require("/entries/common/_sns.share.service.entry.js");
+        var snsShareContentHtData = {
+            facebook : ['http://www.edwith.org/boostcourse-ios/lecture/16842/', '1441124829481137', 'http://www.edwith.org/popupClose'],
+            twitter : ['http://www.edwith.org/boostcourse-ios/lecture/16842/', $("#_twitter_share_content").text(),  '',  ''],
+            googlePlus : ['http://www.edwith.org/boostcourse-ios/lecture/16842/'],
+            band : ['http://www.edwith.org/boostcourse-ios/lecture/16842/', $("#_band_share_content").text()],
+            url: 'http://www.edwith.org/boostcourse-ios/lecture/16842/'
+        };
+        entry.initialize($('._content_sns_area'), snsShareContentHtData);
+    });
+    </script>
+
+                <!-- // 공유하기 -->
+                
+                    
+                    <button class="btn_lecture_like " data-btn-like data-count-num> 13</button>
+                    
+                
+                <!-- // 좋아요 -->
+            </div>
+            <div class="group_r">
+                
+                    
+                        <button type="button" class="btn btn_type1 clr NPI=a:complete" data-selector="tglLearningCompletion" data-role="completed"> Completed </button>
+                    
+                    <div class="bubb type3" data-wrap="tooltip" style="display:none;top:-68px;right:0" data-tooltip-end>
+                        <strong>수강 완료 처리되었습니다.</strong>
+                        <a href="#" class="ico_clse" data-btn-tooltip-close>닫기</a>
+                    </div>
+                    <div class="bubb type3" data-wrap="tooltip" style="display:none;top:-88px;right:0" data-tooltip-next>
+                        
+                        <strong>수강 완료되었습니다.</strong>
+                        <p>이제 <a href="#">다음 강의</a>를 확인하세요.</p>
+                        
+                        <a href="#" class="ico_clse" data-btn-tooltip-close>닫기</a>
+                    </div>
+                    <div class="bubb type3" data-wrap="tooltip" style="display:none;top:-68px;right:0" data-tooltip-alert>
+                        <p data-tooltip-alert-msg></p>
+                        <a href="#" class="ico_clse" data-btn-tooltip-close>닫기</a>
+                    </div>
+                
+            </div>
+        </div>
+
+        <!--페이지네비게이션 : 이전글/다음글/목록보기-->
+        
+<!-- #breadcrumb:lecture/_pageNavigation.gsp -->
+
+<!--목록URL-->
+
+    
+
+
+
+<!--이전 URL/Title -->
+
+    
+    
+    
+        
+    
+
+
+<!--다음 URL/Title -->
+
+    
+    
+    
+        
+    
+
+
+<!--페이지네비게이션 : 이전글/다음글/목록보기-->
+
+<!-- #breadcrumb:common/_pageNavigation.gsp -->
+<div class="group_lr mat60">
+    <div class="paginate2">
+        
+            <div class="pagin l"><a href="/boostcourse-ios/lecture/16841/" class="btn_prve N=a:lec.prev" data-btn-prev>2) Xcode 톺아보기</a></div>
+        
+        
+            <div class="pagin r"><a href="/boostcourse-ios/lecture/16843/" class="btn_next N=a:lec.next" data-btn-next>2) 인터페이스 빌더로 화면 구성하기</a></div>
+        
+    </div>
+    <div class="group_lr">
+        <div class="group_r">
+            <a href="/boostcourse-ios/joinLectures/12899" class="btn btn_type2 bold N=a:lec.list" data-selector="backToListBtn">List</a>
+        </div>
+    </div>
+</div>
+<!--//페이지네비게이션 -->
+        <!--//페이지네비게이션 -->
+    </div>
+
+    
+    
+    <div class="cmt_group" id="comment">
+        <nav class="nav_tab2">
+            <ul>
+                
+                    <li class="active" data-btn-comment><a href="#" id="_wrap_comment_count">Comments  </a></li>
+                
+                
+                    <li data-btn-forum><a href="#" id="_wrap_forum_count">Related discussion  </a></li>
+                
+            </ul>
+        </nav>
+
+        
+        <section class="comment" id="_wrap_comment" style="display: none;">
+
+            <h3 class="sr_only">comment</h3>
+            <!--댓글 등록 폼-->
+            <div class="se_wrap" data-editor></div>
+            <!--//댓글 등록 폼-->
+            <div class="comment_list">
+                <ul id="_wrap_comment_list">
+                </ul>
+            </div>
+
+            <!--댓글 paginate : start -->
+            <nav class="paginate" role="navigation" id="_wrap_page_navi" style="display:none;">
+                <div class="inner">
+                    <h4 class="sr_only">Move page</h4>
+                    <a href="#" class="pre_end disabled" data-pg-first><span class="sr_only">First</span></a>
+                    <a href="#" class="pre" data-pg-prev>Previous</a>
+                    <ul class="page_list" data-pg-number>
+                    </ul>
+                    <a href="#" class="next" data-pg-next>Next</a>
+                    <a href="#" class="next_end" data-pg-last><span class="sr_only">Last</span></a>
+                </div>
+            </nav>
+            <!--댓글 paginate : end -->
+        </section>
+        
+
+        
+        <div id="_wrap_forum" style="display: none">
+            <ul class="forum_list comment_forum _warp_forum_list">
+            </ul>
+
+            <nav class="paginate" role="navigation" id="_wrap_forum_page_navi" style="display:none;">
+                <h4 class="sr_only">Move page</h4>
+
+                <div class="inner">
+                    <a href="#" class="pre_end disabled" data-pg-first><span class="sr_only">First</span></a>
+                    <a href="#" class="pre" data-pg-prev>Previous</a>
+                    <ul class="page_list" data-pg-number>
+                    </ul>
+                    <a href="#" class="next" data-pg-next>Next</a>
+                    <a href="#" class="next_end" data-pg-last><span class="sr_only">Last</span></a>
+                </div>
+            </nav>
+        </div>
+        
+
+        <div id="comment_loader"></div>
+    </div>
+    
+    <input type="hidden" id="_serverEnv" value="www">
+</section>
+<script src="/static/js/vendor/tinymce/tinymce.min.js?200904_56277ac5"></script>
+<script src="/static/js/vendor/katex/katex.min.js?200904_56277ac5"></script>
+<script src="/static/js/src/entries/lecture/show.entry.browserfied.min.js?200904_56277ac5"></script>
+<script>
+    $(document).ready(function(){
+        var entry = require("/entries/lecture/show.entry.js");
+        entry.initialize({
+            env : {
+                mtType : "/mini.editor"
+            },
+            nextAccess: false,
+            isSequence : false,
+            isAlwaysOpen: true,
+            data : {
+                isUsingHiddenComment: true,    //비밀글 사용 여부
+                courseName : "boostcourse-ios",
+                lectureId : 16842,
+                bbsId : 12899,
+                nextId : 16843,
+                nextUrl : '/boostcourse-ios/lecture/16843/'
+            },
+            hasConstraintOnLectureCompletion : false
+        });
+    });
+</script>
+
+        </div>
+    </div>
+    
+
+<footer id="footer">
+    <!-- 메인에서만 노출 -->
+    <div class="f_noti">
+        <div class="layout_in NE=a:not">
+            <strong class="tit">공지사항</strong>
+            
+                <a href="http://blog.naver.com/edwith" class="dsc NPI=a:notice" target="_blank">공지사항 바로가기</a>
+            
+            <a href="http://blog.naver.com/edwith" class="more NPI=a:blog" target="_blank">공식 블로그 바로가기</a>
+        </div>
+    </div>
+
+    
+    
+    <div class="layout_in NE=a:fot" id="_layer">
+        <ul class="f_lst">
+            <li><a href="https://blog.naver.com/PostList.nhn?blogId=edwith&from=postList&categoryNo=1&parentCategoryNo=1" data-nclk="foot.service">Notice</a></li>
+            <li><a href="/introduce" class="NPI=a:introduce">About the Service </a></li>
+            <li><a href="/help/advice-info" class="NPI=a:help">Help</a></li>
+            <li><a href="/partnership" class="NPI=a:partnership">Partnership</a></li>
+            <li><a href="/voc" class="NPI=a:request">Service inquiries</a></li>
+        </ul>
+        <div class="sel_lang_box">
+            <div class="slt">
+                <select class="_custom_slt" title="언어 선택" style="width:160px" onchange="setLanguage(this.value)">
+                    <option value="ko_KR" selected>한국어</option>
+                    <option value="en_US" >English</option>
+                    
+                    <option value="vi_VN" >Tiếng việt</option>
+                </select>
+            </div>
+        </div>
+        <dl class="f_terms">
+            <dt class="sr_only">edwith 정책 및 이용약관</dt>
+            <dd>
+                <a href="/rules/new/service">Terms of Use</a>
+                <span class="bar"></span>
+                <a href="/rules/new/privacy"><strong>Privacy Policy</strong></a>
+            </dd>
+        </dl>
+        <div class="f_terms_addres_box">
+            <ul class="addres_list">
+                <li>상호: 재단법인 네이버 커넥트</li>
+                <li>소재지: 경기도 성남시 분당구 불정로 6 NAVER 그린팩토리 16층</li>
+                <li>대표자명 : 조규찬</li>
+                <li><a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1298212249&apv_perm_no=2015378021930200754" class="link" target="_blank">사업자정보확인</a></li>
+                <li>사업자 등록번호: 129-82-12249</li>
+                <li>유선 번호: 1522-9182</li>
+                <li>통신판매신고 번호: 제2015-경기성남-0754호</li>
+                <li>고객센터: support@edwith.org</li>
+            </ul>
+        </div>
+        <dl class="f_app">
+            <dt class="sr_only">edwith 앱 다운로드</dt>
+            <dd>
+                <a href="https://play.google.com/store/apps/details?id=org.connect.mooc.mobile" target="_blank" title="구글플레이 다운로드" class="ico_android">구글플레이</a>
+                <a href="https://itunes.apple.com/kr/app/edwith-edyukeisyeon-wideu/id1097491400?mt=8" target="_blank" title="앱스토어 다운로드" class="ico_apple">앱스토어</a>
+            </dd>
+        </dl>
+        <p class="copyright">
+            
+                &copy; <strong class="corp">NAVER Connect</strong> All Rights Reserved. Powered by NAVER
+            
+        </p>
+    </div>
+    
+</footer>
+
+<!-- Build 200904.56277ac5 -->
+
+<!-- lcs file -->
+<script src="/static/lcs-js/lcslog.js?200904_56277ac5"></script>
+<script src="/static/js/src/entries/footer/index.entry.browserfied.min.js?200904_56277ac5"></script>
+<script>
+    $(document).ready(function(){
+        
+
+        
+        lcs_do();
+        
+
+        var entry = require("/entries/footer/index.entry.js");
+        entry.initialize({
+            el : "#_layer",
+            isLogin: true,
+            isClosedMooc: true,
+            hasEmail: true,
+            myInfoLink : "http://www.edwith.org/userInfo/base-info"
+        });
+    });
+
+    function setLanguage(locale){
+        setCookie(locale, -1);
+        setCookie(locale, 7);
+        location.reload();
+    }
+
+    function setCookie(value, expireDays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + expireDays);
+        document.cookie = "EDWITH_LOCALE="+escape(value)+";expires="+exdate.toUTCString()+";domain=edwith.org;path=/;";
+    }
+
+</script>
+</div>
+<script src="/static/js/src/entries/layouts/course.entry.browserfied.min.js?200904_56277ac5"></script>
+<script>
+    $(document).ready(function(){
+        var entry = require( "/entries/layouts/course.entry.js" );
+        entry.initialize({
+            messageCode : $("#__MESSAGE_CODE").val(),
+            popupTitle : $("#__MESSAGE_TITLE").val(),
+            message : $("#__MESSAGE").val(),
+            course : "boostcourse-ios",
+            isCourseUseVote: true
+        });
+    });
+</script>
+</body>
+</html>
