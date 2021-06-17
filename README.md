@@ -1,5 +1,3 @@
-2020.10 ~ 
-
 # BoostCourse iOS (by. Yagom)
 
 처음으로 xcode를 접하고 많은 것들을 배울 수 있었던 프로젝트 기반의 교육과정입니다.
@@ -12,6 +10,9 @@
 
 언어는 `Swift5`, 뷰는 `UIKit` 을 이용했고, 프로젝트를 진행하면서 `GCD, URLSession 통신, Delegate & DataSource` 등 iOS 애플리케이션 개발에 필수적이고 기초적인 개념들을 학습하고 프로젝트를 통해 다루어보았습니다.
 
+<br>
+
+기간: 2020.10 ~ 
 
 
 <br>
