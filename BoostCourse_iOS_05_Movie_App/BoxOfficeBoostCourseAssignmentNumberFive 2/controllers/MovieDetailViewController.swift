@@ -12,20 +12,20 @@ class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backNavigationItem: UINavigationItem!
-    let imageAndMovieInfoCellIdentifier: String = "imageAndMovieInfoCell"
+    private let imageAndMovieInfoCellIdentifier: String = "imageAndMovieInfoCell"
     let synopsisCellIdentifier: String = "synopsisCell"
     let actorsCellIdentifier: String = "actorsCell"
     let commentCellIdentifier: String = "commentCell"
     let postCommentCellIdentifier: String = "postCommentCell"
     
-    var imageView = UIImageView()
-    var isEnlarged: Bool = false
+    private var imageView = UIImageView()
+    private var isEnlarged: Bool = false
     
     var id: String?
     
-    var details: Detail?
-    var commments: [Comment] = []
-    var newImageView: UIImageView = UIImageView()
+    private var details: Detail?
+    private var commments: [Comment] = []
+    private var newImageView: UIImageView = UIImageView()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController: PostCommentViewController = segue.destination as? PostCommentViewController else {

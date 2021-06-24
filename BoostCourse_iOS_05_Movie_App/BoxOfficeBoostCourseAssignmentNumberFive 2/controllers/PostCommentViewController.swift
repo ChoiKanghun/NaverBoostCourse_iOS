@@ -22,6 +22,25 @@ class PostCommentViewController: UIViewController {
     var titleToSet: String?
     var movieId: String?
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let imageName = Singleton.shared.ageLimitImageName
+            else {return}
+        self.ageLimitUIImageView?.image = UIImage(named: imageName)
+        self.starRatingUILabel?.text = String(10)
+        self.starSlider.value = 10
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        movieTitleUILabel?.text = titleToSet
+    }
+    
+
     @IBAction func onDragStarSlider(_ sender: UISlider) {
         let floatValue = floor(sender.value * 10) / 10
         let intValue = Int(floor(sender.value))
@@ -60,22 +79,16 @@ class PostCommentViewController: UIViewController {
             self.alertFunc(message: "한줄평 등록에 실패하였습니다")
             return
         }
-        if let userName = self.userNameTextField?.text {
-            
-            Singleton.shared.postCommentUserName = ""
-        }
         self.dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func touchUpCancelButton(_ sender: Any) {
-        if let userName = self.userNameTextField?.text {
-            Singleton.shared.postCommentUserName = userName
-        }
+
         self.dismiss(animated: true, completion: nil)
     }
     
-    func alertFunc(message: String) {
+    private func alertFunc(message: String) {
         let alert: UIAlertController = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertController.Style.alert)
         
         let okAction: UIAlertAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { (action: UIAlertAction) -> Void in
@@ -85,26 +98,6 @@ class PostCommentViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        guard let imageName = Singleton.shared.ageLimitImageName
-            else {return}
-        self.ageLimitUIImageView?.image = UIImage(named: imageName)
-        self.starRatingUILabel?.text = String(10)
-        self.starSlider.value = 10
-        if let userName = Singleton.shared.postCommentUserName {
-            self.userNameTextField?.text = userName
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        movieTitleUILabel?.text = titleToSet
-    }
-    
-
+ 
 
 }

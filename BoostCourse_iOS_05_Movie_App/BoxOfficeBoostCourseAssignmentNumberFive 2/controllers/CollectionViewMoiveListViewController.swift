@@ -14,19 +14,9 @@ class CollectionViewMoiveListViewController: UIViewController {
     let cellIdentifier: String = "collectionViewMovieCell"
     
     var movies: [Movie] = []
-    enum OrderTypeEnumeration: Int {
-        case reservationRate = 0
-        case curation
-        case openingDate
-    }
-    var orderType: Int = OrderTypeEnumeration.reservationRate.rawValue
-    
-    enum OrderTypeString: String {
-         case reservationRate = "예매율"
-         case curation = "큐레이션"
-         case openingDate = "개봉일"
-    }
-        
+
+    var orderType: Int = 0
+ 
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
@@ -70,11 +60,11 @@ class CollectionViewMoiveListViewController: UIViewController {
         let halfWidth: CGFloat = UIScreen.main.bounds.width / 2.0
         let screenHeight: CGFloat = UIScreen.main.bounds.height
         
-        if (isLandscape == false) {
-            flowLayout.itemSize = CGSize(width: halfWidth - 10, height: screenHeight * 0.6)
+        if (isLandscape == true) { // 가로
+            flowLayout.itemSize = CGSize(width: halfWidth - 50, height: screenHeight * 1.2)
         }
-        else {
-            flowLayout.itemSize = CGSize(width: halfWidth - 10, height: screenHeight * 1.2)
+        else { // 세로
+            flowLayout.itemSize = CGSize(width: halfWidth - 20, height: screenHeight * 0.6)
         }
         
         return flowLayout
@@ -90,7 +80,7 @@ class CollectionViewMoiveListViewController: UIViewController {
             = getFlowLayout(isLandscape: UIDevice.current.orientation.isLandscape)
         
         if let orderType = Singleton.shared.orderType {
-            self.orderType = orderType
+            self.orderType = orderType.rawValue
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMoviesNotification(_:)), name: DidReceiveMoviesNotification, object: nil)
@@ -98,7 +88,7 @@ class CollectionViewMoiveListViewController: UIViewController {
         self.collectionView.addSubview(self.refreshControl)
         
         NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(setOrderTypeAndTitleByNotification(_:)), name: DidReceiveOrderTypeNotification, object: nil)
     }
 
     @objc func deviceRotated() {
@@ -147,7 +137,7 @@ class CollectionViewMoiveListViewController: UIViewController {
       // style을 UIAcionSheet 스타일로 해달라 (두 개가 다임)
     }
     
-    func showAlertController(style: UIAlertController.Style) {
+    private func showAlertController(style: UIAlertController.Style) {
         let alertController: UIAlertController
         alertController = UIAlertController(title: "정렬방식 선택", message: "영화를 어떤 방식으로 정렬할까요?", preferredStyle: style)
       // title, message 설정. style은 인자로 받은 UIAlertController.Style. alert or actionSheet
@@ -180,18 +170,27 @@ class CollectionViewMoiveListViewController: UIViewController {
         self.present(alertController ,animated: true, completion: nil)
     }
     
-    func setOrderTypeAndTitle (orderType: Int, title: String){
+    private func setOrderTypeAndTitle (orderType: Int, title: String){
         // set orderType
         self.orderType = orderType
-        Singleton.shared.orderType = self.orderType
+        Singleton.shared.orderType = OrderType(rawValue: self.orderType)
         
         // set title
         let orderString: String = title
-        requestMovies(orderType: self.orderType)
         Singleton.shared.tableViewTitleOrder = orderString + "순"
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        NotificationCenter.default.post(name: DidReceiveOrderTypeNotification, object: orderType)
+    }
+    
+    @objc func setOrderTypeAndTitleByNotification(_ notification: Notification) {
+        if let orderType = notification.object as? Int {
+            self.orderType = orderType
+            Singleton.shared.orderType = OrderType(rawValue: self.orderType)
+            
+            requestMovies(orderType: orderType)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
     

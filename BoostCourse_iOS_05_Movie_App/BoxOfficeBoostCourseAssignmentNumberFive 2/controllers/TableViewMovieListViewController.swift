@@ -8,24 +8,18 @@
 
 import UIKit
 
+let DidReceiveOrderTypeNotification = NSNotification.Name("orderTypeNotification")
+
 class TableViewMovieListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "movieCell"
     
     var movies: [Movie] = []
-    enum OrderTypeEnumeration: Int {
-        case reservationRate = 0
-        case curation
-        case openingDate
-    }
-    var orderType: Int = OrderTypeEnumeration.reservationRate.rawValue
+
+    var orderType: Int = 0
     
-    enum OrderTypeString: String {
-         case reservationRate = "예매율"
-         case curation = "큐레이션"
-         case openingDate = "개봉일"
-     }
+
     var orderTypeString: String = OrderTypeString.reservationRate.rawValue
     
 
@@ -47,13 +41,13 @@ class TableViewMovieListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        requestMovies(orderType: self.orderType)
+        requestMovies(orderType: orderType)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        requestMovies(orderType: self.orderType)
+        requestMovies(orderType: orderType)
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -68,19 +62,19 @@ class TableViewMovieListViewController: UIViewController {
         self.navigationItem.title = "예매율순"
         
         self.orderType = 0
-        Singleton.shared.orderType = self.orderType
+        Singleton.shared.orderType = OrderType(rawValue: self.orderType)
 
         // set title
         Singleton.shared.tableViewTitleOrder = self.orderTypeString + "순"
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMoviesNotification(_:)), name: DidReceiveMoviesNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(setOrderTypeAndTitleByNotification(_:)), name: DidReceiveOrderTypeNotification, object: nil)
 
         self.tableView.addSubview(self.refreshControl)
     }
     
-    @objc func didReceiveMoviesNotification(_ noti: Notification) {
+    @objc private func didReceiveMoviesNotification(_ noti: Notification) {
         guard let movies: [Movie] = noti.userInfo?["movies"] as? [Movie]
             else {return}
         self.movies = movies
@@ -95,7 +89,7 @@ class TableViewMovieListViewController: UIViewController {
       // style을 UIAcionSheet 스타일로 해달라 (두 개가 다임)
     }
     
-    func showAlertController(style: UIAlertController.Style) {
+    private func showAlertController(style: UIAlertController.Style) {
         let alertController: UIAlertController
         alertController = UIAlertController(title: "정렬방식 선택", message: "영화를 어떤 방식으로 정렬할까요?", preferredStyle: style)
       // title, message 설정. style은 인자로 받은 UIAlertController.Style. alert or actionSheet
@@ -127,18 +121,28 @@ class TableViewMovieListViewController: UIViewController {
         self.present(alertController ,animated: true, completion: nil)
     }
     
-    func setOrderTypeAndTitle (orderType: Int, title: String){
+    private func setOrderTypeAndTitle (orderType: Int, title: String){
         // set orderType
         self.orderType = orderType
-        Singleton.shared.orderType = self.orderType
+        Singleton.shared.orderType = OrderType(rawValue: self.orderType)
         
         // set title
         let orderString: String = title
-        requestMovies(orderType: self.orderType)
         Singleton.shared.tableViewTitleOrder = orderString + "순"
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        NotificationCenter.default.post(name: DidReceiveOrderTypeNotification, object: orderType)
+  
+    }
+    
+    @objc func setOrderTypeAndTitleByNotification(_ notification: Notification) {
+        if let orderType = notification.object as? Int {
+            self.orderType = orderType
+            Singleton.shared.orderType = OrderType(rawValue: self.orderType)
+            
+            requestMovies(orderType: orderType)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
