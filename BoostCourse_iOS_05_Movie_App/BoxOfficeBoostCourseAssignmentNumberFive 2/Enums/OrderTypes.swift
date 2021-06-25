@@ -8,8 +8,20 @@
 
 import Foundation
 
-enum OrderType: Int {
-    case ReservationRate = 0
-    case Curation = 1
-    case OpeningDate = 2
+enum OrderType: Int, CustomStringConvertible {
+    case reservationRate = 0
+    case curation = 1
+    case openingDate = 2
+    
+    var description: String {
+        switch self {
+        case .reservationRate:
+            return "예매율"
+        case .curation:
+            return "큐레이션"
+        case .openingDate:
+            return "개봉일"
+        }
+    }
+    
 }

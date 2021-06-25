@@ -11,8 +11,8 @@ import Foundation
 let DidReceiveMoviesNotification: Notification.Name
     = Notification.Name("DidReceiveMovies")
 
-func requestMovies(orderType: Int) {
-    guard let apiURL: URL = URL(string: "https://connect-boxoffice.run.goorm.io/movies?order_type=" + String(orderType))
+func requestMovies(orderType: OrderType) {
+    guard let apiURL: URL = URL(string: "https://connect-boxoffice.run.goorm.io/movies?order_type=" + String(orderType.rawValue))
         else {return}
     
     let session: URLSession = URLSession(configuration: .default)

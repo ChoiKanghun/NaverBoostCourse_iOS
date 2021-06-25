@@ -17,11 +17,7 @@ class TableViewMovieListViewController: UIViewController {
     
     var movies: [Movie] = []
 
-    var orderType: Int = 0
-    
-
-    var orderTypeString: String = OrderTypeString.reservationRate.rawValue
-    
+    var orderType: OrderType = OrderType.reservationRate
 
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -61,11 +57,10 @@ class TableViewMovieListViewController: UIViewController {
         self.tableView.dataSource = self
         self.navigationItem.title = "예매율순"
         
-        self.orderType = 0
-        Singleton.shared.orderType = OrderType(rawValue: self.orderType)
+        Singleton.shared.orderType = self.orderType
 
         // set title
-        Singleton.shared.tableViewTitleOrder = self.orderTypeString + "순"
+        Singleton.shared.tableViewTitleOrder = self.orderType.description + "순"
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveMoviesNotification(_:)), name: DidReceiveMoviesNotification, object: nil)
@@ -95,17 +90,17 @@ class TableViewMovieListViewController: UIViewController {
       // title, message 설정. style은 인자로 받은 UIAlertController.Style. alert or actionSheet
         
         let SortByReservationRateAction: UIAlertAction
-        SortByReservationRateAction = UIAlertAction(title: OrderTypeString.reservationRate.rawValue, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
+        SortByReservationRateAction = UIAlertAction(title: OrderType.reservationRate.description, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
             
-            self.setOrderTypeAndTitle(orderType: 0, title: OrderTypeString.reservationRate.rawValue)
+            Utils.setOrderTypeAndTitle(orderType: 0, viewController: self)
         })
         
-        let sortByCurationAction = UIAlertAction(title: OrderTypeString.curation.rawValue, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
-            self.setOrderTypeAndTitle(orderType: 1, title: OrderTypeString.curation.rawValue)
+        let sortByCurationAction = UIAlertAction(title: OrderType.curation.description, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
+            Utils.setOrderTypeAndTitle(orderType: 1, viewController: self)
         })
         
-        let sortByOpeningDate = UIAlertAction(title: OrderTypeString.openingDate.rawValue, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
-            self.setOrderTypeAndTitle(orderType: 2, title: OrderTypeString.openingDate.rawValue)
+        let sortByOpeningDate = UIAlertAction(title: OrderType.openingDate.description, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
+            Utils.setOrderTypeAndTitle(orderType: 2, viewController: self)
         })
         
         let cancelAction: UIAlertAction
@@ -121,23 +116,13 @@ class TableViewMovieListViewController: UIViewController {
         self.present(alertController ,animated: true, completion: nil)
     }
     
-    private func setOrderTypeAndTitle (orderType: Int, title: String){
-        // set orderType
-        self.orderType = orderType
-        Singleton.shared.orderType = OrderType(rawValue: self.orderType)
-        
-        // set title
-        let orderString: String = title
-        Singleton.shared.tableViewTitleOrder = orderString + "순"
-        self.navigationItem.title = Singleton.shared.tableViewTitleOrder
-        NotificationCenter.default.post(name: DidReceiveOrderTypeNotification, object: orderType)
-  
-    }
+
     
     @objc func setOrderTypeAndTitleByNotification(_ notification: Notification) {
-        if let orderType = notification.object as? Int {
+        if let rawValue = notification.object as? Int,
+           let orderType = OrderType(rawValue: rawValue) {
             self.orderType = orderType
-            Singleton.shared.orderType = OrderType(rawValue: self.orderType)
+            Singleton.shared.orderType = orderType
             
             requestMovies(orderType: orderType)
             DispatchQueue.main.async {

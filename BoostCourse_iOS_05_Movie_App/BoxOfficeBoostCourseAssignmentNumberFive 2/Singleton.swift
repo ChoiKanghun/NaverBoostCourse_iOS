@@ -12,14 +12,10 @@ class Singleton {
     static let shared: Singleton = Singleton()
     
     var ageLimitImageName: String?
-    
     var tableViewTitleOrder: String?
     var orderType: OrderType?
+    
+    private init() {}
+    
 
 }
-
-enum OrderTypeString: String {
-     case reservationRate = "예매율"
-     case curation = "큐레이션"
-     case openingDate = "개봉일"
- }
