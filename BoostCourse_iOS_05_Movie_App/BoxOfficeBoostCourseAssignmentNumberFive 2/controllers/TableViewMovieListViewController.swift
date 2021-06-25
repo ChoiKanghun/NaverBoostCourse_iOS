@@ -37,13 +37,13 @@ class TableViewMovieListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        requestMovies(orderType: orderType)
+        RequestUtils.shared.requestMovies(orderType: orderType)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        requestMovies(orderType: orderType)
+        RequestUtils.shared.requestMovies(orderType: orderType)
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -124,7 +124,7 @@ class TableViewMovieListViewController: UIViewController {
             self.orderType = orderType
             Singleton.shared.orderType = orderType
             
-            requestMovies(orderType: orderType)
+            RequestUtils.shared.requestMovies(orderType: orderType)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -134,7 +134,7 @@ class TableViewMovieListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController:MovieDetailViewController = segue.destination as? MovieDetailViewController
             else {return}
-        guard let cell: MovieListCellTableViewCell = sender as? MovieListCellTableViewCell
+        guard let cell: MovieTableViewCell = sender as? MovieTableViewCell
             else {return}
         
         guard let id: String = cell.movieId
@@ -152,7 +152,7 @@ extension TableViewMovieListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: MovieListCellTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? MovieListCellTableViewCell
+        guard let cell: MovieTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? MovieTableViewCell
             else {return UITableViewCell()}
         
         let movie: Movie = self.movies[indexPath.row]

@@ -35,7 +35,7 @@ class CollectionViewMoiveListViewController: UIViewController {
         super.viewDidAppear(animated)
         
         
-        requestMovies(orderType: self.orderType)
+        RequestUtils.shared.requestMovies(orderType: self.orderType)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +43,7 @@ class CollectionViewMoiveListViewController: UIViewController {
         
 
 
-        requestMovies(orderType: self.orderType)
+        RequestUtils.shared.requestMovies(orderType: self.orderType)
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -176,7 +176,7 @@ class CollectionViewMoiveListViewController: UIViewController {
             self.orderType = orderType
             Singleton.shared.orderType = orderType
             
-            requestMovies(orderType: orderType)
+            RequestUtils.shared.requestMovies(orderType: orderType)
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }

@@ -40,7 +40,7 @@ class MovieDetailViewController: UIViewController {
         
         guard let movieId:String = self.id
             else {return}
-        requestDetails(id: movieId) { networkResult in
+        RequestUtils.shared.requestDetails(id: movieId) { networkResult in
             if networkResult == .failure {
                 AlertUtil.justAlert(VC: self,
                                     title: "네트워크 오류",
@@ -48,7 +48,7 @@ class MovieDetailViewController: UIViewController {
                                     preferredStyle: .alert)
             }
         }
-        requestComments()
+        RequestUtils.shared.requestComments()
     }
 
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class MovieDetailViewController: UIViewController {
     }
     
     @objc func didDismissPostCommentNotification(_ noti: Notification) {
-        requestComments()
+        RequestUtils.shared.requestComments()
         OperationQueue.main.addOperation {
             self.tableView.reloadData()
         }
