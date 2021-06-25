@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Movie List View Controller-->
+        <!--Movie List Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TableViewMovieListViewController" customModule="BoxOfficeBoostCourseAssignmentNumberFive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MovieListTableViewController" customModule="BoxOfficeBoostCourseAssignmentNumberFive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -620,10 +620,10 @@
             </objects>
             <point key="canvasLocation" x="1317.5999999999999" y="401.64917541229386"/>
         </scene>
-        <!--Collection View Moive List View Controller-->
+        <!--Movie List Collection View Controller-->
         <scene sceneID="bAd-gk-O1w">
             <objects>
-                <viewController id="C0O-AW-g9U" customClass="CollectionViewMoiveListViewController" customModule="BoxOfficeBoostCourseAssignmentNumberFive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C0O-AW-g9U" customClass="MovieListCollectionViewController" customModule="BoxOfficeBoostCourseAssignmentNumberFive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mDz-w5-PKp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

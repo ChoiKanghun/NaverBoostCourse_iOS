@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CollectionViewMoiveListViewController: UIViewController {
+class MovieListCollectionViewController: UIViewController {
+
 
     @IBOutlet weak var collectionView: UICollectionView!
     let cellIdentifier: String = "collectionViewMovieCell"
@@ -35,7 +36,15 @@ class CollectionViewMoiveListViewController: UIViewController {
         super.viewDidAppear(animated)
         
         
-        RequestUtils.shared.requestMovies(orderType: self.orderType)
+        RequestUtils.shared.requestMovies(orderType: self.orderType) { result in
+            if result == .failure {
+                AlertUtil.justAlert(viewController: self,
+                                    title: "에러",
+                                    message: "네트워크 통신에 문제가 있습니다",
+                                    preferredStyle: .alert)
+                return
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +52,15 @@ class CollectionViewMoiveListViewController: UIViewController {
         
 
 
-        RequestUtils.shared.requestMovies(orderType: self.orderType)
+        RequestUtils.shared.requestMovies(orderType: self.orderType) { result in
+            if result == .failure {
+                AlertUtil.justAlert(viewController: self,
+                                    title: "에러",
+                                    message: "네트워크 통신에 문제가 있습니다",
+                                    preferredStyle: .alert)
+                return
+            }
+        }
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -143,8 +160,8 @@ class CollectionViewMoiveListViewController: UIViewController {
       // title, message 설정. style은 인자로 받은 UIAlertController.Style. alert or actionSheet
         
  
-        let SortByReservationRateAction: UIAlertAction
-        SortByReservationRateAction = UIAlertAction(title: OrderType.reservationRate.description, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
+        let sortByReservationRateAction: UIAlertAction
+        sortByReservationRateAction = UIAlertAction(title: OrderType.reservationRate.description, style: UIAlertAction.Style.default, handler: { (action: UIAlertAction) in
             Utils.setOrderTypeAndTitle(orderType: 0, viewController: self)
 
         })
@@ -162,7 +179,7 @@ class CollectionViewMoiveListViewController: UIViewController {
           // 핸들러가 nil인 경우 아무 액션 없이 그냥. dismiss됨
       
         
-        alertController.addAction(SortByReservationRateAction)
+        alertController.addAction(sortByReservationRateAction)
         alertController.addAction(sortByCurationAction)
         alertController.addAction(sortByOpeningDate)
         alertController.addAction(cancelAction)
@@ -176,7 +193,16 @@ class CollectionViewMoiveListViewController: UIViewController {
             self.orderType = orderType
             Singleton.shared.orderType = orderType
             
-            RequestUtils.shared.requestMovies(orderType: orderType)
+            RequestUtils.shared.requestMovies(orderType: orderType) { result in
+                if result == .failure {
+                    AlertUtil.justAlert(viewController: self,
+                                        title: "에러",
+                                        message: "네트워크 통신에 문제가 있습니다",
+                                        preferredStyle: .alert)
+                    return
+                }
+            }
+            
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -200,7 +226,7 @@ class CollectionViewMoiveListViewController: UIViewController {
 
 
 
-extension CollectionViewMoiveListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MovieListCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movies.count
     }
@@ -223,23 +249,14 @@ extension CollectionViewMoiveListViewController: UICollectionViewDataSource, UIC
                 cell.movieImageView?.image = UIImage(data: imageData)
             }
         }
-        var ageLimitImage: UIImage?
-        switch movie.ageLimit {
-        case 0:
-            ageLimitImage = UIImage(named: "ic_allages")
-        case 12:
-            ageLimitImage = UIImage(named: "ic_12")
-        case 15:
-            ageLimitImage = UIImage(named: "ic_15")
-        case 19:
-            ageLimitImage = UIImage(named: "ic_19")
-        default:
+        if let ageLimitImage = UIImage(named: movie.getMovieImageName()) {
+            cell.ageLimitImageView?.image = ageLimitImage
+            cell.movieId = movie.id
+            return cell
+        }
+        else {
             return UICollectionViewCell()
         }
-        cell.ageLimitImageView?.image = ageLimitImage
-        cell.movieId = movie.id
-        
-        return cell
     }
     
 }

@@ -23,6 +23,21 @@ struct Movie: Codable {
     let openingDate: String
     let id: String
     
+    func getMovieImageName() -> String {
+        switch self.ageLimit {
+        case 0:
+            return "ic_allages"
+        case 12:
+            return "ic_12"
+        case 15:
+            return "ic_15"
+        case 19:
+            return "ic_19"
+        default:
+            return ""
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, id
         case openingDate = "date"

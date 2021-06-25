@@ -71,25 +71,28 @@ class RequestUtils {
     }
 
     
-    func requestMovies(orderType: OrderType) {
+    func requestMovies(orderType: OrderType, completion: @escaping (NetworkResult?) -> Void) {
         guard let apiURL: URL = URL(string: "https://connect-boxoffice.run.goorm.io/movies?order_type=" + String(orderType.rawValue))
-            else {return}
+            else { completion(.failure); return }
         
         let session: URLSession = URLSession(configuration: .default)
         let dataTask: URLSessionDataTask = session.dataTask(with: apiURL) {
             (data: Data?, response: URLResponse?, error: Error?) in
             if let error = error {
                 print (error.localizedDescription)
+                completion(.failure)
                 return
             }
             guard let data = data
-                else {return}
+            else { completion(.failure); return }
             
             do {
                 let apiResponse: APIResponse = try JSONDecoder().decode(APIResponse.self, from: data)
                 NotificationCenter.default.post(name: DidReceiveMoviesNotification, object: nil, userInfo: ["movies": apiResponse.movies])
+                completion(.success)
             } catch (let err) {
                 print(err.localizedDescription)
+                completion(.failure)
             }
         }
         dataTask.resume()
@@ -98,7 +101,10 @@ class RequestUtils {
     func requestDetails(id: String, completion: @escaping (NetworkResult?)-> Void) {
         let URLAddress: String = "https://connect-boxoffice.run.goorm.io/movie?id=" + id
         guard let apiURL: URL = URL(string: URLAddress)
-        else { return }
+        else {
+            completion(.failure)
+            return
+        }
         let session: URLSession = URLSession(configuration: .default)
         let dataTask: URLSessionDataTask = session.dataTask(with: apiURL) {
             (data: Data?, response: URLResponse?, error: Error?) in

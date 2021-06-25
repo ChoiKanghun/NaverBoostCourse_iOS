@@ -42,10 +42,11 @@ class MovieDetailViewController: UIViewController {
             else {return}
         RequestUtils.shared.requestDetails(id: movieId) { networkResult in
             if networkResult == .failure {
-                AlertUtil.justAlert(VC: self,
+                AlertUtil.justAlert(viewController: self,
                                     title: "네트워크 오류",
                                     message: "네트워크 통신 중 에러가 발생했습니다.",
                                     preferredStyle: .alert)
+                return
             }
         }
         RequestUtils.shared.requestComments()

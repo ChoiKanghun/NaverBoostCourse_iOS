@@ -12,18 +12,7 @@ import UIKit
 class AlertUtil {
     private init() {}
     
-    static func justAlert(VC: UIViewController, title: String, message: String?, preferredStyle: UIAlertController.Style) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        
-        alert.addAction(okAction)
-        
-        VC.present(alert, animated: true, completion: nil)
-    }
-    
-    static func alertAndDismiss(viewController: UIViewController, title: String, message: String?, preferredStyle: UIAlertController.Style, completion: @escaping (Bool?) -> Void) {
+    static func justAlert(viewController: UIViewController, title: String, message: String?, preferredStyle: UIAlertController.Style) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         
@@ -33,4 +22,6 @@ class AlertUtil {
         
         viewController.present(alert, animated: true, completion: nil)
     }
+    
+
 }

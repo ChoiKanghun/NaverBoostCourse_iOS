@@ -10,7 +10,7 @@ import UIKit
 
 let DidReceiveOrderTypeNotification = NSNotification.Name("orderTypeNotification")
 
-class TableViewMovieListViewController: UIViewController {
+class MovieListTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "movieCell"
@@ -37,13 +37,30 @@ class TableViewMovieListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        RequestUtils.shared.requestMovies(orderType: orderType)
+        if self.movies.count == 0 {
+            RequestUtils.shared.requestMovies(orderType: orderType) { result in
+                if result == .failure {
+                    AlertUtil.justAlert(viewController: self,
+                                        title: "에러",
+                                        message: "네트워크 통신에 문제가 있습니다",
+                                        preferredStyle: .alert)
+                    return
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        RequestUtils.shared.requestMovies(orderType: orderType)
+        RequestUtils.shared.requestMovies(orderType: orderType) { result in
+            if result == .failure {
+                AlertUtil.justAlert(viewController: self,
+                                    title: "에러",
+                                    message: "네트워크 통신에 문제가 있습니다",
+                                    preferredStyle: .alert)
+            }
+        }
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
             self.handleRefresh(self.refreshControl)
@@ -67,6 +84,16 @@ class TableViewMovieListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setOrderTypeAndTitleByNotification(_:)), name: DidReceiveOrderTypeNotification, object: nil)
 
         self.tableView.addSubview(self.refreshControl)
+        RequestUtils.shared.requestMovies(orderType: orderType) { result in
+            if result == .failure {
+                AlertUtil.justAlert(viewController: self,
+                                    title: "에러",
+                                    message: "네트워크 통신에 문제가 있습니다",
+                                    preferredStyle: .alert)
+                return
+            }
+        }
+
     }
     
     @objc private func didReceiveMoviesNotification(_ noti: Notification) {
@@ -124,7 +151,15 @@ class TableViewMovieListViewController: UIViewController {
             self.orderType = orderType
             Singleton.shared.orderType = orderType
             
-            RequestUtils.shared.requestMovies(orderType: orderType)
+            RequestUtils.shared.requestMovies(orderType: orderType) { result in
+                if result == .failure {
+                    AlertUtil.justAlert(viewController: self,
+                                        title: "에러",
+                                        message: "네트워크 통신에 문제가 있습니다",
+                                        preferredStyle: .alert)
+                    return
+                }
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -146,7 +181,7 @@ class TableViewMovieListViewController: UIViewController {
 }
 
 // MARK:- TableViewCell 뿌리는 지점
-extension TableViewMovieListViewController: UITableViewDelegate, UITableViewDataSource {
+extension MovieListTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.movies.count
     }
@@ -175,28 +210,13 @@ extension TableViewMovieListViewController: UITableViewDelegate, UITableViewData
                 }
             }
         }
-        var ageLimitImageName: String?
-        switch movie.ageLimit {
-        case 0:
-            ageLimitImageName = "ic_allages"
-        case 12:
-            ageLimitImageName = "ic_12"
-        case 15:
-            ageLimitImageName = "ic_15"
-        case 19:
-            ageLimitImageName = "ic_19"
-        default:
-            return UITableViewCell()
-        }
-        
-        if let name = ageLimitImageName {
-            let ageLimitImage = UIImage(named: name)
+        if let ageLimitImage = UIImage(named: movie.getMovieImageName()) {
             cell.ageLimitImageView?.image = ageLimitImage
-        } else {
+            cell.movieId = movie.id
+            return cell
+        }
+        else {
             return UITableViewCell()
         }
-        cell.movieId = movie.id
- 
-        return cell
     }
 }

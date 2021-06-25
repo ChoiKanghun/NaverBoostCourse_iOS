@@ -14,6 +14,7 @@ class Singleton {
     var ageLimitImageName: String?
     var tableViewTitleOrder: String?
     var orderType: OrderType?
+    var postCommentUserId: String?
     
     private init() {}
     

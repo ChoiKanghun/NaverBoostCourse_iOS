@@ -26,11 +26,15 @@ class PostCommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.userNameTextField.addTarget(self, action: #selector(self.userNameTextFieldDidChange(_:)), for: .editingChanged)
         guard let imageName = Singleton.shared.ageLimitImageName
             else {return}
         self.ageLimitUIImageView?.image = UIImage(named: imageName)
         self.starRatingUILabel?.text = String(10)
         self.starSlider.value = 10
+        if let postCommentUserId = Singleton.shared.postCommentUserId {
+            self.userNameTextField.text = postCommentUserId
+        }
 
     }
     
@@ -40,6 +44,9 @@ class PostCommentViewController: UIViewController {
         movieTitleUILabel?.text = titleToSet
     }
     
+    @objc func userNameTextFieldDidChange(_ sender: Any?) {
+        Singleton.shared.postCommentUserId = self.userNameTextField.text
+    }
 
     @IBAction func onDragStarSlider(_ sender: UISlider) {
         let floatValue = floor(sender.value * 10) / 10
@@ -80,7 +87,11 @@ class PostCommentViewController: UIViewController {
                 return
             }
             else {
-                self.dismiss(animated: true, completion: nil)
+                Singleton.shared.postCommentUserId = nil
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+
             }
         }
     }
@@ -94,13 +105,14 @@ class PostCommentViewController: UIViewController {
         let alert: UIAlertController = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertController.Style.alert)
         
         let okAction: UIAlertAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { (action: UIAlertAction) -> Void in
-            self.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
-        
         alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-
- 
-
 }
+
