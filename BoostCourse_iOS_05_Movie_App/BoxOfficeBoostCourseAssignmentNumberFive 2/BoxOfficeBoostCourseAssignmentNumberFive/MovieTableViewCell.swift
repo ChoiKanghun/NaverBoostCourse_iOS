@@ -17,17 +17,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieReservationRate: UILabel!
     @IBOutlet weak var movieOpeningDate: UILabel!
     @IBOutlet weak var ageLimitImageView: UIImageView!
+
     var movieId: String?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

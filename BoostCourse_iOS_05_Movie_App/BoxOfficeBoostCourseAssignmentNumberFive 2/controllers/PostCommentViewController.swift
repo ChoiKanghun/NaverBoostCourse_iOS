@@ -74,13 +74,15 @@ class PostCommentViewController: UIViewController {
             alertFunc(message: "작성자와 내용 모두 입력하셔야 합니다.")
             return
         }
-        let isFailed: Int = RequestUtils.shared.postComment(movieId: movieId, rating: Double(self.starSlider.value), writer: writer, contents: contents)
-        if isFailed == 1 {
-            self.alertFunc(message: "한줄평 등록에 실패하였습니다")
-            return
+        RequestUtils.shared.postComment(movieId: movieId, rating: Double(self.starSlider.value), writer: writer, contents: contents) { result in
+            if result == .failure {
+                self.alertFunc(message: "한줄평 등록에 실패하였습니다")
+                return
+            }
+            else {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
-        self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func touchUpCancelButton(_ sender: Any) {
@@ -92,6 +94,7 @@ class PostCommentViewController: UIViewController {
         let alert: UIAlertController = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertController.Style.alert)
         
         let okAction: UIAlertAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) { (action: UIAlertAction) -> Void in
+            self.dismiss(animated: true, completion: nil)
         }
         
         alert.addAction(okAction)

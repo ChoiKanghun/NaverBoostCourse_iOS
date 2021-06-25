@@ -46,7 +46,7 @@ class TableViewMovieListViewController: UIViewController {
         RequestUtils.shared.requestMovies(orderType: orderType)
         self.navigationItem.title = Singleton.shared.tableViewTitleOrder
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.handleRefresh(self.refreshControl)
         }
     }
     
@@ -138,7 +138,7 @@ class TableViewMovieListViewController: UIViewController {
             else {return}
         
         guard let id: String = cell.movieId
-            else {return}
+        else {return}
         nextViewController.id = id
     }
  

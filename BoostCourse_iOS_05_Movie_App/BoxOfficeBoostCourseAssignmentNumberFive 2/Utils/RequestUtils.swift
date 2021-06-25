@@ -32,21 +32,21 @@ struct PostComment: Codable {
 class RequestUtils {
     static let shared = RequestUtils()
     
-    func postComment(movieId: String, rating: Double, writer: String, contents: String) -> Int {
+    func postComment(movieId: String, rating: Double, writer: String, contents: String, completion: @escaping (NetworkResult?) -> Void) {
         // 넣는 순서도 순서대로여야 하는 것 같다.
         let comment = PostComment(movieId: movieId, rating: rating, writer: writer, contents: contents)
         guard let uploadData = try? JSONEncoder().encode(comment)
-        else {return 1}
+        else {return}
         
-        var isFailed: Int = 0
         // URL 객체 정의
         let url = URL(string: "https://connect-boxoffice.run.goorm.io/comment")
         
         // URLRequest 객체를 정의
         guard let requestURL = url
-            else {
-                print("invalid post comment url")
-                return (0)
+        else {
+            print("invalid post comment url")
+            completion(.failure)
+            return
         }
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
@@ -59,16 +59,15 @@ class RequestUtils {
             // 서버가 응답이 없거나 통신이 실패
             if let e = error {
                 NSLog("An error has occured: \(e.localizedDescription)")
-                isFailed = 1
+                completion(.failure)
                 return
             }
             // 응답 처리 로직
             NotificationCenter.default.post(name: DidDismissPostCommentViewController, object: nil, userInfo: nil)
+            completion(.success)
         }
         // POST 전송
         task.resume()
-        
-        return isFailed
     }
 
     

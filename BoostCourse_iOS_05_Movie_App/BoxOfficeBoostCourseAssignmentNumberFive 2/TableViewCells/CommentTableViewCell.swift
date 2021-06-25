@@ -19,17 +19,6 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var starFour: UIImageView!
     @IBOutlet weak var starFive: UIImageView!
 
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }
 
