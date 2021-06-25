@@ -40,7 +40,14 @@ class MovieDetailViewController: UIViewController {
         
         guard let movieId:String = self.id
             else {return}
-        requestDetails(id: movieId)
+        requestDetails(id: movieId) { networkResult in
+            if networkResult == .failure {
+                AlertUtil.justAlert(VC: self,
+                                    title: "네트워크 오류",
+                                    message: "네트워크 통신 중 에러가 발생했습니다.",
+                                    preferredStyle: .alert)
+            }
+        }
         requestComments()
     }
 

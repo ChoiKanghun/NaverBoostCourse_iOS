@@ -29,6 +29,8 @@
 		7A8553AC2587BAF7000894E1 /* ReqeustComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8553AB2587BAF7000894E1 /* ReqeustComments.swift */; };
 		7AEB4CC92684634900FB6B70 /* OrderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB4CC82684634900FB6B70 /* OrderTypes.swift */; };
 		7AEB4CD12685740C00FB6B70 /* SettingOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB4CD02685740C00FB6B70 /* SettingOrderType.swift */; };
+		7AEB4CD32685790800FB6B70 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB4CD22685790800FB6B70 /* NetworkResult.swift */; };
+		7AEB4CD526857A6400FB6B70 /* AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB4CD426857A6400FB6B70 /* AlertUtil.swift */; };
 		7AFCCAE92591D8C90063E478 /* StarRatingUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFCCAE82591D8C90063E478 /* StarRatingUISlider.swift */; };
 		7AFCCAEB25985DDF0063E478 /* PostRequestComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFCCAEA25985DDF0063E478 /* PostRequestComment.swift */; };
 		7AFCCAEF259C24D70063E478 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFCCAEE259C24D70063E478 /* Singleton.swift */; };
@@ -60,6 +62,8 @@
 		7A8553AB2587BAF7000894E1 /* ReqeustComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReqeustComments.swift; path = ../BoxOfficeBoostCourseAssignmentNumberFive/ReqeustComments.swift; sourceTree = "<group>"; };
 		7AEB4CC82684634900FB6B70 /* OrderTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTypes.swift; sourceTree = "<group>"; };
 		7AEB4CD02685740C00FB6B70 /* SettingOrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingOrderType.swift; sourceTree = "<group>"; };
+		7AEB4CD22685790800FB6B70 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		7AEB4CD426857A6400FB6B70 /* AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtil.swift; sourceTree = "<group>"; };
 		7AFCCAE82591D8C90063E478 /* StarRatingUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingUISlider.swift; sourceTree = "<group>"; };
 		7AFCCAEA25985DDF0063E478 /* PostRequestComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestComment.swift; sourceTree = "<group>"; };
 		7AFCCAEE259C24D70063E478 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				7AEB4CC82684634900FB6B70 /* OrderTypes.swift */,
+				7AEB4CD22685790800FB6B70 /* NetworkResult.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				7AEB4CD02685740C00FB6B70 /* SettingOrderType.swift */,
+				7AEB4CD426857A6400FB6B70 /* AlertUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				7A8553A6257C5A68000894E1 /* CommentTableViewCell.swift in Sources */,
 				7A4B04E02587D40900B33314 /* PostButtonTableViewCell.swift in Sources */,
 				7AFCCAEF259C24D70063E478 /* Singleton.swift in Sources */,
+				7AEB4CD526857A6400FB6B70 /* AlertUtil.swift in Sources */,
 				7A4B04E22587DF2C00B33314 /* PostCommentViewController.swift in Sources */,
 				7A855382257A1DA6000894E1 /* AppDelegate.swift in Sources */,
 				7A855398257A279A000894E1 /* MovieListCollectionViewCell.swift in Sources */,
@@ -265,6 +272,7 @@
 				7A8553A4257C5A5D000894E1 /* ActorsTableViewCell.swift in Sources */,
 				7A85539E257C4D66000894E1 /* MovieDetailViewController.swift in Sources */,
 				7AFCCAE92591D8C90063E478 /* StarRatingUISlider.swift in Sources */,
+				7AEB4CD32685790800FB6B70 /* NetworkResult.swift in Sources */,
 				7A85539C257B5AFC000894E1 /* RequestMovies.swift in Sources */,
 				7A8553A2257C5A54000894E1 /* SynopsisTableViewCell.swift in Sources */,
 				7AEB4CD12685740C00FB6B70 /* SettingOrderType.swift in Sources */,
