@@ -12,7 +12,8 @@
 
 <br>
 
-기간: 2020.10 ~ 
+
+<img src="https://user-images.githubusercontent.com/41955126/123743840-cf7cb180-d8e8-11eb-87be-b972e01277cb.png" alt="수료증.png">
 
 
 <br>
